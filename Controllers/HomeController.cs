@@ -17,4 +17,16 @@ public class HomeController : Controller
     {
         return View();
     }
+    public IActionResult Inicio(){
+        Juego salaEscape = new Juego();
+        HttpContext.Session.SetString("salaEscape", Objetos.ObjectToString(salaEscape)); //Ver homeController
+        return View("Casamineto");
+    }
+    public IActionResult ValidarCodigo (int codigo){
+        ViewBag. Users = Objetos.StringToObject<Juego>(HttpContext.Session.GetString("salaEscape"));
+        if (salaEscape.codigoCorrecto == codigo){
+
+        }
+        //Ver error. DALEEEE FLOR, MUCHAS OLIMPIADAS POCA PROGRAMACION. A LABURAR. PD: Galanti hizo un 1% de esto. Tmp que fuera tanto KKKKK
+    }
 }

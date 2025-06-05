@@ -19344,8 +19344,43 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\49190820\\SalaEscape-Grinstein-Sack-Galanti\\Views\\Home\\Portal.cshtml",
+      "TargetPath": "Views\\Home\\Portal.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\49190820\\SalaEscape-Grinstein-Sack-Galanti\\Views\\_ViewStart.cshtml",
       "TargetPath": "Views\\_ViewStart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\49190820\\SalaEscape-Grinstein-Sack-Galanti\\Views\\Home\\Paracaidas.cshtml",
+      "TargetPath": "Views\\Home\\Paracaidas.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\49190820\\SalaEscape-Grinstein-Sack-Galanti\\Views\\Home\\Final.cshtml",
+      "TargetPath": "Views\\Home\\Final.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\49190820\\SalaEscape-Grinstein-Sack-Galanti\\Views\\Home\\Playa.cshtml",
+      "TargetPath": "Views\\Home\\Playa.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\49190820\\SalaEscape-Grinstein-Sack-Galanti\\Views\\Home\\Error.cshtml",
+      "TargetPath": "Views\\Home\\Error.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\49190820\\SalaEscape-Grinstein-Sack-Galanti\\Views\\Home\\Casamiento.cshtml",
+      "TargetPath": "Views\\Home\\Casamiento.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\49190820\\SalaEscape-Grinstein-Sack-Galanti\\Views\\Home\\Desierto.cshtml",
+      "TargetPath": "Views\\Home\\Desierto.cshtml",
       "FileKind": "mvc"
     },
     {
