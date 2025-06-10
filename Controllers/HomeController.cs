@@ -19,14 +19,20 @@ public class HomeController : Controller
     }
     public IActionResult Inicio(){
         Juego salaEscape = new Juego();
-        HttpContext.Session.SetString("salaEscape", Objetos.ObjectToString(salaEscape)); //Ver homeController
-        return View("Casamineto");
+        salaEscape.inicializarJuego();
+        HttpContext.Session.SetString("salaEscape", Objetos.ObjectToString(salaEscape)); 
+        return View("Casamiento");
     }
-    public IActionResult ValidarCodigo (int codigo){
-        ViewBag. Users = Objetos.StringToObject<Juego>(HttpContext.Session.GetString("salaEscape"));
+    public IActionResult ValidarCodigo (int codigo,int idSalaAnterior){
+        Juego salaEscape =  Objetos.StringToObject<Juego>(HttpContext.Session.GetString("salaEscape"));
+        ViewBag.salaEscape = Objetos.StringToObject<Juego>(HttpContext.Session.GetString("salaEscape"));
         if (salaEscape.codigoCorrecto == codigo){
-
+            int proximaView = salaEscape.obtenerProximaSala(idSalaAnterior);
+            return RedirectToAction(proximaView);
         }
-        //Ver error. DALEEEE FLOR, MUCHAS OLIMPIADAS POCA PROGRAMACION. A LABURAR. PD: Galanti hizo un 1% de esto. Tmp que fuera tanto KKKKK
+        else{
+            
+            return RedirectToAction("Error");
+        }
     }
 }

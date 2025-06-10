@@ -21,4 +21,4 @@ public static class Objetos{
         else
             return JsonConvert.DeserializeObject<T>(txt);
     }
-} //Me equivoque de cosa, tiene que se el e lista DIAPOSITIVA 7
+} 
