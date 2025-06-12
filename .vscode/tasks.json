@@ -7,9 +7,9 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/SalaEscape_Grinstein_Sack_Galanti.csproj",
+                "${workspaceFolder}/SalaEscape-Grinstein-Sack-Galanti.csproj",
                 "/property:GenerateFullPaths=true",
-                "/consoleloggerparameters:NoSummary;ForceNoAlign"
+                "/consoleloggerparameters:NoSummary"
             ],
             "problemMatcher": "$msCompile"
         },
@@ -19,9 +19,9 @@
             "type": "process",
             "args": [
                 "publish",
-                "${workspaceFolder}/SalaEscape_Grinstein_Sack_Galanti.csproj",
+                "${workspaceFolder}/SalaEscape-Grinstein-Sack-Galanti.csproj",
                 "/property:GenerateFullPaths=true",
-                "/consoleloggerparameters:NoSummary;ForceNoAlign"
+                "/consoleloggerparameters:NoSummary"
             ],
             "problemMatcher": "$msCompile"
         },
@@ -33,7 +33,7 @@
                 "watch",
                 "run",
                 "--project",
-                "${workspaceFolder}/SalaEscape_Grinstein_Sack_Galanti.csproj"
+                "${workspaceFolder}/SalaEscape-Grinstein-Sack-Galanti.csproj"
             ],
             "problemMatcher": "$msCompile"
         }

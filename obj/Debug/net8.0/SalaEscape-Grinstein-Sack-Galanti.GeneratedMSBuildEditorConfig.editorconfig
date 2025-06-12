@@ -9,59 +9,71 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = SalaEscape-Grinstein-Sack-Galanti
 build_property.RootNamespace = SalaEscape-Grinstein-Sack-Galanti
-build_property.ProjectDir = c:\Users\49190820\SalaEscape-Grinstein-Sack-Galanti\
+build_property.ProjectDir = c:\Users\49628016\SalaEscape-Grinstein-Sack-Galanti\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = c:\Users\49190820\SalaEscape-Grinstein-Sack-Galanti
+build_property.MSBuildProjectDirectory = c:\Users\49628016\SalaEscape-Grinstein-Sack-Galanti
 build_property._RazorSourceGeneratorDebug = 
 
-[c:/Users/49190820/SalaEscape-Grinstein-Sack-Galanti/Views/Home/Casamiento.cshtml]
+[c:/Users/49628016/SalaEscape-Grinstein-Sack-Galanti/Views/Home/Casamiento.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDYXNhbWllbnRvLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/49190820/SalaEscape-Grinstein-Sack-Galanti/Views/Home/Desierto.cshtml]
+[c:/Users/49628016/SalaEscape-Grinstein-Sack-Galanti/Views/Home/Desierto.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxEZXNpZXJ0by5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/49190820/SalaEscape-Grinstein-Sack-Galanti/Views/Home/Error.cshtml]
+[c:/Users/49628016/SalaEscape-Grinstein-Sack-Galanti/Views/Home/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxFcnJvci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/49190820/SalaEscape-Grinstein-Sack-Galanti/Views/Home/Final.cshtml]
+[c:/Users/49628016/SalaEscape-Grinstein-Sack-Galanti/Views/Home/Final.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxGaW5hbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/49190820/SalaEscape-Grinstein-Sack-Galanti/Views/Home/Index.cshtml]
+[c:/Users/49628016/SalaEscape-Grinstein-Sack-Galanti/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/49190820/SalaEscape-Grinstein-Sack-Galanti/Views/Home/Paracaidas.cshtml]
+[c:/Users/49628016/SalaEscape-Grinstein-Sack-Galanti/Views/Home/ingresoClave.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxpbmdyZXNvQ2xhdmUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/49628016/SalaEscape-Grinstein-Sack-Galanti/Views/Home/Paracaidas.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQYXJhY2FpZGFzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/49190820/SalaEscape-Grinstein-Sack-Galanti/Views/Home/Playa.cshtml]
+[c:/Users/49628016/SalaEscape-Grinstein-Sack-Galanti/Views/Home/pasaste.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxwYXNhc3RlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/49628016/SalaEscape-Grinstein-Sack-Galanti/Views/Home/Playa.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQbGF5YS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/49190820/SalaEscape-Grinstein-Sack-Galanti/Views/Home/Portal.cshtml]
+[c:/Users/49628016/SalaEscape-Grinstein-Sack-Galanti/Views/Home/Portal.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQb3J0YWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/49190820/SalaEscape-Grinstein-Sack-Galanti/Views/Shared/_Layout.cshtml]
+[c:/Users/49628016/SalaEscape-Grinstein-Sack-Galanti/Views/Home/Video.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxWaWRlby5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/49628016/SalaEscape-Grinstein-Sack-Galanti/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/49190820/SalaEscape-Grinstein-Sack-Galanti/Views/Shared/_ValidationScriptsPartial.cshtml]
+[c:/Users/49628016/SalaEscape-Grinstein-Sack-Galanti/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/49190820/SalaEscape-Grinstein-Sack-Galanti/Views/_ViewImports.cshtml]
+[c:/Users/49628016/SalaEscape-Grinstein-Sack-Galanti/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/49190820/SalaEscape-Grinstein-Sack-Galanti/Views/_ViewStart.cshtml]
+[c:/Users/49628016/SalaEscape-Grinstein-Sack-Galanti/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

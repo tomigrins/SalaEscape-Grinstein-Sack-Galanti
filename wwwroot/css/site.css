@@ -14,6 +14,75 @@ body {
   padding: 10px;
 }
 
+.Mensaje
+{
+  background-size: cover;         
+  background-position: center;    
+  background-repeat: no-repeat; 
+  margin: 20px;
+
+}
+.Mensaje div h1, .Mensaje div h2, .Mensaje div a{
+  color: white;
+  font-family: Arial;
+}
+.Mensaje div{
+  background: rgba(0, 0, 0, 0.13);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(3.5px);
+-webkit-backdrop-filter: blur(3.5px);
+border: 1px solid rgba(128, 128, 128, 0.07);
+text-align: center;
+}
+
+.Mensaje div h1{
+  font-weight: bold;
+    margin-bottom: 3%;
+    font-size: 50px;
+    text-transform:uppercase;
+  }
+  
+  .Mensaje div h2{
+  margin-bottom: 10%;
+  }
+
+.Mensaje div button{
+  margin-bottom: 10%;
+  padding: 0.5%;
+  padding-left: 10%;
+  padding-right: 10%;
+  font-size: 10px;
+  text-transform: uppercase;
+  color: white;
+  background-color: #13139bc4;
+  border-radius: 25px;
+  border:none;
+ 
+}
+
+.Mensaje div button:hover {
+  color: #13139bc4;
+  background-color: #13139b10;
+}
+
+
+.Clave
+{
+  background-image: url('Imagenes/Momento clave.png');
+}
+
+.Error
+{
+  background-image: url('Imagenes/Perdiste.png');
+  
+}
+
+
+.Pasaste
+{
+  background-image: url('Imagenes/Pasaste.png');
+}
 
 footer {
   margin-top: 10px;

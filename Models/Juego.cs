@@ -1,27 +1,41 @@
 using Newtonsoft.Json;
-public static class Juego
+public class Juego
 {
     public Dictionary<int, Escena> Escenas {private set; get;}
     public Jugador jugador {private set;get;}
     private Escena ObtenerEscena()
     {
-        return ;
+        return Escenas[jugador.SalaActual + 1];
     }
-    public  string obtenerProximaSala(){
+    public string obtenerProximaSala(){
         Escena escenaProxima = ObtenerEscena();
         return escenaProxima.View;
     }
-    public  string obtenerViewParaError (){
+    public string obtenerProximaViewEnEscena(){
+    Escena escenaActual = obtenerEscenaActual();
+    int indexActual = escenaActual.View.IndexOf(jugador.ViewActual);
+    if (indexActual >= 0 && indexActual < escenaActual.View.Count - 1){
+        return escenaActual.View[indexActual + 1];
+    }
+    return null; // o alguna vista final, o "Error"
+}
 
+    public int obtenerViewParaError (){
+        return jugador.SalaActual;
+    }
+    public Escena obtenerEscenaActual(){
+        Escena escenaActual = Escenas[jugador.SalaActual];
+        return escenaActual;
     }
     public void inicializarJuego(){
         Escenas= new Dictionary<int, Escena>{
-            {0, new Escena { Id = 0, Nombre = "Casamiento", View = "Casamiento", CodigoCorrecto = "FIAMBREMATRIMONIO" }},
-            {1, new Escena { Id = 1, Nombre = "Casa del Terror", View = "CasaDelTerror", CodigoCorrecto = "MALDITOESPEJO" }},
-            {2, new Escena { Id = 2, Nombre = "Desierto", View = "Desierto", CodigoCorrecto = "CAMELORD"}},
-            {3, new Escena { Id = 3, Nombre = "Playa", View = "Playa", CodigoCorrecto = "AGUAESCAPE" }},
-            {4, new Escena { Id = 4, Nombre = "Paracaídas", View = "Paracaidas", CodigoCorrecto = "SKYDROP"}},
-            {5, new Escena { Id = 5, Nombre = "Portal", View = "Portal", CodigoCorrecto = "PORTALCAMA"}}
+            {0, new Escena (0, "Casamiento", new List<string> (){"Video", "Casamiento", "Mensaje" ,"Baño"}, "ardtvdR28SQ", "FIAMBREMATRIMONIO" )},
+            {1, new Escena (1, "Montaña rusa", "MontañaRusa","MALDITOESPEJO" )},
+            {2, new Escena (2,"Desierto", "Desierto","CAMELORD")},
+            {3, new Escena (3, "Playa", "Playa","AGUAESCAPE" )},
+            {4, new Escena (4, "Paracaídas", "Paracaidas", "SKYDROP")},
+            {5, new Escena (5, "Portal", "Portal", "PORTALCAMA")}
         };
+        jugador = new Jugador();
     }
 }

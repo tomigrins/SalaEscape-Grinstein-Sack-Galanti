@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Video de Casamiento</title>
+</head>
+<body>
+  
+  <iframe 
+          src="https://www.youtube.com/embed/'@ViewBag.video'.VideoId?autoplay=1&mute=1&controls=0&rel=0&modestbranding=1&showinfo=0&enablejsapi=1"
+          allow="autoplay; encrypted-media"
+          allowfullscreen>
+        </iframe>
+
+  <script>
+    // Detecta cuando termina el video y redirige
+    const nextViewUrl = '@ViewBag.proximaView';
+    var tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+    var player;
+    function onYouTubeIframeAPIReady() {
+      player = new YT.Player('ytplayer', {
+        events: {
+          'onStateChange': onPlayerStateChange
+        }
+      });
+    }
+
+    function onPlayerStateChange(event) {
+      if (event.data === YT.PlayerState.ENDED) {
+        window.location.href = @ViewBag; 
+      }
+    }
+  </script>
+</body>
+</html>

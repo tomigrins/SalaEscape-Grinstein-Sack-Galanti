@@ -23,16 +23,31 @@ public class HomeController : Controller
         HttpContext.Session.SetString("salaEscape", Objetos.ObjectToString(salaEscape)); 
         return View("Casamiento");
     }
-    public IActionResult ValidarCodigo (int codigo,int idSalaAnterior){
+    public IActionResult ValidarCodigo (string codigo,int idSalaAnterior){
         Juego salaEscape =  Objetos.StringToObject<Juego>(HttpContext.Session.GetString("salaEscape"));
         ViewBag.salaEscape = Objetos.StringToObject<Juego>(HttpContext.Session.GetString("salaEscape"));
-        if (salaEscape.codigoCorrecto == codigo){
-            int proximaView = salaEscape.obtenerProximaSala(idSalaAnterior);
-            return RedirectToAction(proximaView);
+        if (salaEscape.Escenas[salaEscape.jugador.SalaActual].CodigoCorrecto == codigo){
+            string proximaView = salaEscape.obtenerProximaSala();
+            return View("Sala" + proximaView);
         }
         else{
-            
+            ViewBag.SalaActual=salaEscape.obtenerViewParaError();
             return RedirectToAction("Error");
-        }
+        } 
     }
+    public IActionResult Error(){
+        Juego salaEscape =  Objetos.StringToObject<Juego>(HttpContext.Session.GetString("salaEscape"));
+        ViewBag.h1 = "El código ingresado no es correcto.";
+        ViewBag.h2 = "Presione el botón para volver a la sala";
+        ViewBag.boton = "Volver";
+        ViewBag.proxSala = salaEscape.obtenerProximaSala();
+        return View("Error");
+    }
+    public IActionResult Video(){
+    Juego salaEscape = Objetos.StringToObject<Juego>(HttpContext.Session.GetString("salaEscape"));
+    ViewBag.video = salaEscape.obtenerEscenaActual().Video;
+    ViewBag.proximaView = salaEscape.obtenerProximaViewEnEscena(); // esto es clave
+    return View();
+}
+
 }
