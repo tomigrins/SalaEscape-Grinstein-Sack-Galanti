@@ -1,39 +1,25 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <title>Video de Casamiento</title>
-</head>
 <body>
   
-  <iframe 
-          src="https://www.youtube.com/embed/'@ViewBag.video'.VideoId?autoplay=1&mute=1&controls=0&rel=0&modestbranding=1&showinfo=0&enablejsapi=1"
-          allow="autoplay; encrypted-media"
-          allowfullscreen>
-        </iframe>
+  <div id="player"></div>
 
-  <script>
-    // Detecta cuando termina el video y redirige
-    const nextViewUrl = '@ViewBag.proximaView';
-    var tag = document.createElement('script');
-    tag.src = "https://www.youtube.com/iframe_api";
-    var firstScriptTag = document.getElementsByTagName('script')[0];
-    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-    var player;
-    function onYouTubeIframeAPIReady() {
-      player = new YT.Player('ytplayer', {
-        events: {
-          'onStateChange': onPlayerStateChange
+    <script>
+        let player;
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('player', {
+                videoId: '@ViewBag.video',
+                events: {
+                    'onReady': function(e) {
+                        e.target.playVideo();
+                    },
+                    'onStateChange': function(e) {
+                        if (e.data === YT.PlayerState.ENDED) {
+                            window.location.href = '/Home/@ViewBag.proximaView';
+                        }
+                    }
+                }
+            });
         }
-      });
-    }
+    </script>
 
-    function onPlayerStateChange(event) {
-      if (event.data === YT.PlayerState.ENDED) {
-        window.location.href = @ViewBag; 
-      }
-    }
-  </script>
+    <script src="https://www.youtube.com/iframe_api"></script>
 </body>
-</html>

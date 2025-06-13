@@ -13,21 +13,18 @@ public class HomeController : Controller
         _logger = logger;
     }
 
-    public IActionResult Index()
-    {
-        return View();
-    }
-    public IActionResult Inicio(){
+    
+    public IActionResult Index(){
         Juego salaEscape = new Juego();
         salaEscape.inicializarJuego();
         HttpContext.Session.SetString("salaEscape", Objetos.ObjectToString(salaEscape)); 
-        return View("Casamiento");
+        return View();
     }
     public IActionResult ValidarCodigo (string codigo,int idSalaAnterior){
         Juego salaEscape =  Objetos.StringToObject<Juego>(HttpContext.Session.GetString("salaEscape"));
         ViewBag.salaEscape = Objetos.StringToObject<Juego>(HttpContext.Session.GetString("salaEscape"));
         if (salaEscape.Escenas[salaEscape.jugador.SalaActual].CodigoCorrecto == codigo){
-            string proximaView = salaEscape.obtenerProximaSala();
+            string proximaView = salaEscape.obtenerProximaViewEnEscena();
             return View("Sala" + proximaView);
         }
         else{
@@ -40,14 +37,19 @@ public class HomeController : Controller
         ViewBag.h1 = "El código ingresado no es correcto.";
         ViewBag.h2 = "Presione el botón para volver a la sala";
         ViewBag.boton = "Volver";
-        ViewBag.proxSala = salaEscape.obtenerProximaSala();
+        string viewActual = salaEscape.obtenerViewActual();
+        HttpContext.Session.SetString("salaEscape", Objetos.ObjectToString(salaEscape));
+        ViewBag.viewActual = viewActual;
         return View("Error");
     }
-    public IActionResult Video(){
-    Juego salaEscape = Objetos.StringToObject<Juego>(HttpContext.Session.GetString("salaEscape"));
-    ViewBag.video = salaEscape.obtenerEscenaActual().Video;
-    ViewBag.proximaView = salaEscape.obtenerProximaViewEnEscena(); // esto es clave
-    return View();
+    public IActionResult Video()
+    {
+        Juego salaEscape = Objetos.StringToObject<Juego>(HttpContext.Session.GetString("salaEscape"));
+        ViewBag.video = salaEscape.obtenerEscenaActual().Video;
+        ViewBag.proximaView = salaEscape.obtenerProximaViewEnEscena();
+        salaEscape.avanzarView();
+        HttpContext.Session.SetString("salaEscape", Objetos.ObjectToString(salaEscape));
+        return View();
 }
 
 }
