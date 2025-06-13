@@ -14,11 +14,11 @@ public class HomeController : Controller
     }
 
     
-    public IActionResult Index(){
+    public IActionResult Inicio(){
         Juego salaEscape = new Juego();
         salaEscape.inicializarJuego();
         HttpContext.Session.SetString("salaEscape", Objetos.ObjectToString(salaEscape)); 
-        return View();
+        return View("Casamiento");
     }
     public IActionResult ValidarCodigo (string codigo,int idSalaAnterior){
         Juego salaEscape =  Objetos.StringToObject<Juego>(HttpContext.Session.GetString("salaEscape"));
