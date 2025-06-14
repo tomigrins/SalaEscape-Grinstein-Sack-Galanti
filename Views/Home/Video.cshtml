@@ -1,19 +1,25 @@
 <body>
   
-  <div id="player"></div>
+    <div id="player"></div>
 
-    <script>
+    @section Scripts{
+      <script>
+      const videoId = "@ViewBag.video"; // se inyecta Razor, ¡pero revisá que no tenga espacios o esté null!
+      const nextView = "@Url.Action((string)ViewBag.proximaView, "Home")";
+
         let player;
         function onYouTubeIframeAPIReady() {
             player = new YT.Player('player', {
-                videoId: '@ViewBag.video',
+                @* height: '100%',
+                width: '800%', *@
+                videoId: videoId,
                 events: {
-                    'onReady': function(e) {
+                    'onReady': function (e) {
                         e.target.playVideo();
                     },
-                    'onStateChange': function(e) {
+                    'onStateChange': function (e) {
                         if (e.data === YT.PlayerState.ENDED) {
-                            window.location.href = '/Home/@ViewBag.proximaView';
+                            window.location.href = nextView;
                         }
                     }
                 }
@@ -22,4 +28,7 @@
     </script>
 
     <script src="https://www.youtube.com/iframe_api"></script>
+    }
+    <p>Video id: @ViewBag.video</p>
+    <p>@ViewBag.debug</p>
 </body>

@@ -38,6 +38,17 @@ public class Juego
         Escena escenaActual = Escenas[jugador.SalaActual];
         return escenaActual;
     }
+    public string obtenerVideoDeEscenaActual()
+    {
+        Escena escena = obtenerEscenaActual();
+        if (escena.View[jugador.numViewActual] == "Video")
+        {
+            return escena.Video;
+        }
+        return null;
+    }
+
+
     public void inicializarJuego()
     {
         Escenas = new Dictionary<int, Escena>{
