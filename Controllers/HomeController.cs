@@ -13,53 +13,118 @@ public class HomeController : Controller
         _logger = logger;
     }
 
-    
-    public IActionResult Index(){
+
+    public IActionResult Inicio()
+    {
         Juego salaEscape = new Juego();
         salaEscape.inicializarJuego();
-        HttpContext.Session.SetString("salaEscape", Objetos.ObjectToString(salaEscape)); 
+        HttpContext.Session.SetString("salaEscape", Objetos.ObjectToString(salaEscape));
         return RedirectToAction("Video");
     }
-    public IActionResult ValidarCodigo (string codigo,int idSalaAnterior){
-        Juego salaEscape =  Objetos.StringToObject<Juego>(HttpContext.Session.GetString("salaEscape"));
+    public IActionResult ValidarCodigo(string codigo, int idSalaAnterior)
+    {
+        Juego salaEscape = Objetos.StringToObject<Juego>(HttpContext.Session.GetString("salaEscape"));
         ViewBag.salaEscape = Objetos.StringToObject<Juego>(HttpContext.Session.GetString("salaEscape"));
-        if (salaEscape.Escenas[salaEscape.jugador.SalaActual].CodigoCorrecto == codigo){
+        if (salaEscape.Escenas[salaEscape.jugador.SalaActual].CodigoCorrecto == codigo)
+        {
             string proximaView = salaEscape.obtenerProximaViewEnEscena();
             return View("Sala" + proximaView);
         }
-        else{
-            ViewBag.SalaActual=salaEscape.obtenerViewParaError();
+        else
+        {
+            ViewBag.SalaActual = salaEscape.obtenerViewParaError();
             return RedirectToAction("Error");
-        } 
+        }
     }
-    public IActionResult Error(){
-        Juego salaEscape =  Objetos.StringToObject<Juego>(HttpContext.Session.GetString("salaEscape"));
+    public IActionResult Error()
+    {
+        Juego salaEscape = Objetos.StringToObject<Juego>(HttpContext.Session.GetString("salaEscape"));
         ViewBag.h1 = "El código ingresado no es correcto.";
         ViewBag.h2 = "Presione el botón para volver a la sala";
         ViewBag.boton = "Volver";
         string viewActual = salaEscape.obtenerViewActual();
         HttpContext.Session.SetString("salaEscape", Objetos.ObjectToString(salaEscape));
         ViewBag.viewActual = viewActual;
-        return View("Error");
+        return View("Mensaje");
     }
     public IActionResult Video()
     {
+        // string? juegoString = HttpContext.Session.GetString("salaEscape");
+        // if (string.IsNullOrEmpty(juegoString))
+        // {
+        //     return RedirectToAction("Index"); // O redirigir a una vista de error
+        // }
+        // Juego salaEscape = Objetos.StringToObject<Juego>(HttpContext.Session.GetString("salaEscape"));
+        // if (!salaEscape.Escenas.ContainsKey(salaEscape.jugador.SalaActual))
+        // {
+        //     return RedirectToAction("Index");
+        // }
+        // ViewBag.debug = "paso por el controller de video!!";
+        // ViewBag.video = salaEscape.obtenerVideoDeEscenaActual();
+        // ViewBag.proximaView = salaEscape.obtenerProximaViewEnEscena();
+        // salaEscape.avanzarView();
+        // HttpContext.Session.SetString("salaEscape", Objetos.ObjectToString(salaEscape));
+        // return View();  
         string? juegoString = HttpContext.Session.GetString("salaEscape");
+
+        //DEBUGGERS
         if (string.IsNullOrEmpty(juegoString))
         {
-            return RedirectToAction("Index"); // O redirigir a una vista de error
+            ViewBag.debug = "NO HAY juego en sesión (juegoString es null)";
+            return View("Index");
         }
-        Juego salaEscape = Objetos.StringToObject<Juego>(HttpContext.Session.GetString("salaEscape"));
-        // ViewBag.debug = $"Sala: {salaEscape.jugador.SalaActual}, Video: {salaEscape.obtenerVideoDeEscenaActual()}, View: {salaEscape.obtenerViewActual()}";
+        Juego? salaEscape = Objetos.StringToObject<Juego>(juegoString);
+        if (string.IsNullOrEmpty(juegoString))
+        {
+            ViewBag.debug = "salaEscape no existe en sesión";
+            return View("Index");
+        }
+        else
+        {
+            ViewBag.debug = $"JSON recuperado: {juegoString}";
+        }
+
+        if (salaEscape == null)
+        {
+            ViewBag.debug = "ERROR: No se pudo deserializar salaEscape";
+            return View("Index");
+        }
+        if (salaEscape.Escenas == null)
+        {
+            ViewBag.debug = "ERROR: salaEscape.Escenas es null";
+            return View("Index");
+        }
+
+
+        if (salaEscape.jugador == null)
+        {
+            ViewBag.debug = "ERROR: salaEscape.jugador es null";
+            return View("Index");
+        }
         if (!salaEscape.Escenas.ContainsKey(salaEscape.jugador.SalaActual))
         {
-            return RedirectToAction("Index"); // o mostrar un mensaje de error amigable
+            ViewBag.debug = $"ERROR: Escenas no contiene la clave {salaEscape.jugador.SalaActual}";
+            return View("Index");
         }
+
         ViewBag.video = salaEscape.obtenerVideoDeEscenaActual();
         ViewBag.proximaView = salaEscape.obtenerProximaViewEnEscena();
         salaEscape.avanzarView();
         HttpContext.Session.SetString("salaEscape", Objetos.ObjectToString(salaEscape));
         return View();
-}
+    }
+
+    public IActionResult BañoCasamiento()
+    {
+        Juego salaEscape = Objetos.StringToObject<Juego>(HttpContext.Session.GetString("salaEscape"));
+        ViewBag.h1 = "Tenés ganas de ir al baño";
+        ViewBag.h2 = "Estás en un casamiento. La música suena lejana, la pista de baile vibra, pero algo te incomoda. Esa sensación ineludible... te dan ganas de ir al baño. Sentís una presencia extraña en el ambiente, como si no fueras la única en apurarte a salir de ahí. Presioná el botón si te animás a continuar.";
+        ViewBag.boton = "Ir al baño";
+        string viewActual = salaEscape.obtenerViewActual();
+        HttpContext.Session.SetString("salaEscape", Objetos.ObjectToString(salaEscape));
+        ViewBag.viewActual = viewActual;
+        salaEscape.avanzarView();
+        return View("Mensaje");
+    }
 
 }

@@ -1,34 +1,51 @@
+@{
+    ViewData["Title"] = "Video";
+}
+
 <body>
-  
     <div id="player"></div>
 
-    @section Scripts{
-      <script>
-      const videoId = "@ViewBag.video"; // se inyecta Razor, ¡pero revisá que no tenga espacios o esté null!
-      const nextView = "@Url.Action((string)ViewBag.proximaView, "Home")";
+    @section Scripts {
+        <script>
+            const videoId = "@ViewBag.video";
+            const nextView = "@Url.Action((string)ViewBag.proximaView, "Home")";
 
-        let player;
-        function onYouTubeIframeAPIReady() {
-            player = new YT.Player('player', {
-                @* height: '100%',
-                width: '800%', *@
-                videoId: videoId,
-                events: {
-                    'onReady': function (e) {
-                        e.target.playVideo();
+            let player;
+            let checkTimeInterval;
+            function onYouTubeIframeAPIReady() {
+                player = new YT.Player('player', {
+                    videoId: videoId,
+                    playerVars: {
+                        autoplay: 1,
+                        mute: 1,
+                        controls: 0,
+                        modestbranding: 1,
+                        rel: 0
                     },
-                    'onStateChange': function (e) {
-                        if (e.data === YT.PlayerState.ENDED) {
-                            window.location.href = nextView;
+                    events: {
+                        'onReady': function (e) {
+                            e.target.playVideo();
+                            // Empezamos a chequear el tiempo cada 500 ms
+                            checkTimeInterval = setInterval(() => {
+                                const currentTime = player.getCurrentTime();
+                                if (currentTime >= 5) { //CAMBIAR DSP ESTO POR 30 SEGUNDOS
+                                    clearInterval(checkTimeInterval);
+                                    // Redirigir a la vista "Mensaje"
+                                    window.location.href = "@Url.Action("BañoCasamiento", "Home")";
+                                }
+                            }, 500);
+                        },
+                        'onStateChange': function (e) {
+                            if (e.data === YT.PlayerState.ENDED) {
+                                window.location.href = nextView;
+                            }
                         }
                     }
-                }
-            });
-        }
-    </script>
+                });
+            }
+        </script>
 
-    <script src="https://www.youtube.com/iframe_api"></script>
+        <script src="https://www.youtube.com/iframe_api"></script>
     }
-    <p>Video id: @ViewBag.video</p>
-    <p>@ViewBag.debug</p>
+
 </body>

@@ -1,8 +1,8 @@
 using Newtonsoft.Json;
 public class Juego
 {
-    public Dictionary<int, Escena> Escenas { private set; get; }
-    public Jugador jugador { private set; get; }
+    public Dictionary<int, Escena> Escenas { set; get; }
+    public Jugador jugador { set; get; }
     private Escena ObtenerEscena()
     {
         return Escenas[jugador.SalaActual + 1];

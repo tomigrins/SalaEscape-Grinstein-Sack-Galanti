@@ -1,10 +1,10 @@
 public class Jugador
 {
-    public string Nombre { get; private set; }
-    public int SalaActual { get; private set; }
-    public List<string> ClavesObtenidas { get; private set; }
-    public bool JuegoTerminado { get; private set; }
-    public int numViewActual { get; private set; }
+    public string Nombre { get;  set; }
+    public int SalaActual { get;  set; }
+    public List<string> ClavesObtenidas { get;  set; }
+    public bool JuegoTerminado { get;  set; }
+    public int numViewActual { get; set; }
     public Jugador()
     {
         Nombre = "";
