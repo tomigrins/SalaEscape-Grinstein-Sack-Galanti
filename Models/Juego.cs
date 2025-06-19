@@ -1,71 +1,4 @@
 using Newtonsoft.Json;
-// public class Juego
-// {
-//     public Dictionary<int, Escena> Escenas { set; get; }
-//     public Jugador jugador { set; get; }
-//     private Escena ObtenerEscena()
-//     {
-//         return Escenas[jugador.SalaActual + 1];
-//     }
-//     public string pasarDeSala()
-//     {
-//         Escena escenaProxima = ObtenerEscena();
-//         jugador.pasarDeSala(escenaProxima.Id);
-//         return escenaProxima.View[jugador.numViewActual];
-//     }
-//     public string obtenerProximaViewEnEscena()
-//     {
-//         Escena escenaActual = obtenerEscenaActual();
-//         int i = jugador.numViewActual + 1;
-//         if (i < escenaActual.View.Count)
-//         {
-//             return escenaActual.View[i];
-//         }
-//         return null;
-//     }
-//     public void avanzarView()
-//     {
-//         jugador.avanzarView();
-//     }
-
-
-//     public int obtenerViewParaError()
-//     {
-//         return jugador.SalaActual;
-//     }
-//     public Escena obtenerEscenaActual()
-//     {
-//         Escena escenaActual = Escenas[jugador.SalaActual];
-//         return escenaActual;
-//     }
-//     public string obtenerVideoDeEscenaActual()
-//     {
-//         Escena escena = obtenerEscenaActual();
-//         if (escena.View[jugador.numViewActual] == "Video")
-//         {
-//             return escena.Videos.;
-//         }
-//         return null;
-//     }
-
-
-//     public void inicializarJuego()
-//     {
-//         new Escena(0, "Casamiento", new List<View> {
-//             new View("Video", "ardtvdR28SQ", 5),
-//             new View("Mensaje", texto: "Estás en un casamiento. La música suena lejana, la pista de baile vibra, pero algo te incomoda. Esa sensación ineludible... te dan ganas de ir al baño. Sentís una presencia extraña en el ambiente, como si no fueras la única en apurarte a salir de ahí. Presioná el botón si te animás a continuar.", botonTexto: "Ir al baño", proximaAccion: "Baño", Titulo: "Te dan ganas de ir al baño"),
-//             new View("Video", "wpHC614ZHMY", 19)
-//         }, "FIAMBREMATRIMONIO");
-//         jugador = new Jugador();
-//     }
-//     public string obtenerViewActual()
-//     {
-//         Escena escenaActual = obtenerEscenaActual();
-//         return escenaActual.View[jugador.numViewActual];
-//     }
-// }
-
-using Newtonsoft.Json;
 public class Juego
 {
     public Dictionary<int, Escena> Escenas { get; set; }
@@ -77,8 +10,9 @@ public class Juego
             {
                 0, new Escena(0, "Casamiento", new List<View> {
                     new View("Video", "ardtvdR28SQ", 30, null, null, "Mensaje"),
-                    new View("Mensaje", null,null, "Estás en un casamiento. La música suena lejana, la pista de baile vibra, pero algo te incomoda. Esa sensación ineludible... te dan ganas de ir al baño. Sentís una presencia extraña en el ambiente, como si no fueras la única en apurarte a salir de ahí. Presioná el botón si te animás a continuar.", "Ir al baño", "Video", "Te dan ganas de ir al baño"),
-                    new View("Video", "wpHC614ZHMY", 20, null, null, "Mensaje")
+                    new View("Mensaje", null,null, "Estás en un casamiento. La música suena lejana, la pista de baile vibra, pero algo te incomoda. Esa sensación ineludible... te dan ganas de ir al baño. Sentís una presencia extraña en el ambiente, como si no fueras la única en apurarte a salir de ahí. Presioná el botón si te animás a continuar.", "Ir al baño", "Video", "Te dan ganas de ir al baño", "Baño"),
+                    new View("Video", "wpHC614ZHMY", 20, null, null, "Mensaje"),
+                    new View("Mensaje", null, null, "Te sentás a descansar y sacás el celular. Abrís un jueguito para pasar el rato… pero algo no cierra. Los colores cambian, los sonidos se distorsionan. Las reglas del juego parecen inventarse solas. Tu reflejo en la pantalla no te sigue. Jugá si te animás. Pero sabé esto: algo se está por mover.", "Jugar", "Juego", "Estás en el inodoro.", "Baño")
                 }, "FIAMBREMATRIMONIO")
             }
         };
@@ -86,9 +20,12 @@ public class Juego
         jugador = new Jugador();
     }
 
-    private Escena ObtenerEscena()
+    private Escena? ObtenerEscena()
     {
-        return Escenas[jugador.SalaActual + 1];
+        int proximaSala = jugador.SalaActual + 1;
+        if (Escenas.ContainsKey(proximaSala))
+            return Escenas[proximaSala];
+        return null; 
     }
 
     public Escena obtenerEscenaActual()
@@ -131,8 +68,24 @@ public class Juego
     public View obtenerViewActualObjeto()
     {
         Escena escenaActual = obtenerEscenaActual();
+
+        if (jugador.numViewActual >= escenaActual.Views.Count)
+        {
+            if (Escenas.ContainsKey(jugador.SalaActual + 1))
+            {
+                pasarDeSala(); // ya reinicia numViewActual a 0
+                escenaActual = obtenerEscenaActual();
+            }
+            else
+            {
+                return new View("Mensaje", null, null, "¡Felicidades! Escapaste.", null, null, "Fin");
+            }
+        }
+
         return escenaActual.Views[jugador.numViewActual];
     }
+
+    
 
     public string? obtenerTipoViewActual()
     {
@@ -153,12 +106,17 @@ public class Juego
         jugador.avanzarView();
     }
 
-    public string pasarDeSala()
-    {
-        Escena proxima = ObtenerEscena();
-        jugador.pasarDeSala(proxima.Id);
-        return proxima.Views[jugador.numViewActual].Tipo;
-    }
+    public View? pasarDeSala()
+{
+    Escena? proxima = ObtenerEscena();
+    if (proxima == null)
+        return null; 
+
+    jugador.pasarDeSala(proxima.Id);
+    jugador.numViewActual = 0;
+    return proxima.Views[0];
+}
+
 
     public int obtenerViewParaError()
     {

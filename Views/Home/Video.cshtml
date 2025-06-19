@@ -7,11 +7,11 @@
 
     @section Scripts {
         <script>
-            const videoId = "@ViewBag.video";
-            const nextView = "@Url.Action((string)ViewBag.proximaView, "Home")";
+            const videoId = "@ViewBag.video"
+            const nextView = "@Url.Action((string)ViewBag.proximaView, "Home")"
 
-            let player;
-            let checkTimeInterval;
+            let player
+            let checkTimeInterval
             function onYouTubeIframeAPIReady() {
                 player = new YT.Player('player', {
                     videoId: videoId,
@@ -24,22 +24,22 @@
                     },
                     events: {
                         'onReady': function (e) {
-                            e.target.playVideo();
+                            e.target.playVideo()
                             checkTimeInterval = setInterval(() => {
                                 const currentTime = player.getCurrentTime();
                                 if (currentTime >= 5) { 
                                     clearInterval(checkTimeInterval);
                                     window.location.href = "@Url.Action("Mensaje", "Home")";
                                 }
-                            }, 500);
+                            }, 500)
                         },
                         'onStateChange': function (e) {
                             if (e.data === YT.PlayerState.ENDED) {
-                                window.location.href = nextView;
+                                window.location.href = nextView
                             }
                         }
                     }
-                });
+                })
             }
         </script>
 
