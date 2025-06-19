@@ -12,7 +12,7 @@ public class Juego
                     new View("Video", "ardtvdR28SQ", 30, null, null, "Mensaje"),
                     new View("Mensaje", null,null, "Estás en un casamiento. La música suena lejana, la pista de baile vibra, pero algo te incomoda. Esa sensación ineludible... te dan ganas de ir al baño. Sentís una presencia extraña en el ambiente, como si no fueras la única en apurarte a salir de ahí. Presioná el botón si te animás a continuar.", "Ir al baño", "Video", "Te dan ganas de ir al baño", "Baño"),
                     new View("Video", "wpHC614ZHMY", 20, null, null, "Mensaje"),
-                    new View("Mensaje", null, null, "Te sentás a descansar y sacás el celular. Abrís un jueguito para pasar el rato… pero algo no cierra. Los colores cambian, los sonidos se distorsionan. Las reglas del juego parecen inventarse solas. Tu reflejo en la pantalla no te sigue. Jugá si te animás. Pero sabé esto: algo se está por mover.", "Jugar", "Juego", "Estás en el inodoro.", "Baño")
+                    new View("Mensaje", null, null, "Te sentás a descansar y sacás el celular. Abrís un jueguito para pasar el rato… pero algo no cierra. Los colores cambian, los sonidos se distorsionan. Las reglas del juego parecen inventarse solas. Tu reflejo en la pantalla no te sigue. Jugá si te animás. Pero sabé esto: algo se está por mover.", "Jugar", "Juego", "Estás en el inodoro.", "Inodoro")
                 }, "FIAMBREMATRIMONIO")
             }
         };
