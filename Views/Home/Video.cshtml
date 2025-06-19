@@ -25,13 +25,11 @@
                     events: {
                         'onReady': function (e) {
                             e.target.playVideo();
-                            // Empezamos a chequear el tiempo cada 500 ms
                             checkTimeInterval = setInterval(() => {
                                 const currentTime = player.getCurrentTime();
-                                if (currentTime >= 5) { //CAMBIAR DSP ESTO POR 30 SEGUNDOS
+                                if (currentTime >= 5) { 
                                     clearInterval(checkTimeInterval);
-                                    // Redirigir a la vista "Mensaje"
-                                    window.location.href = "@Url.Action("BañoCasamiento", "Home")";
+                                    window.location.href = "@Url.Action("Mensaje", "Home")";
                                 }
                             }, 500);
                         },
