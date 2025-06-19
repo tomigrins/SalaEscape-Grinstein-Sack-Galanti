@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SalaEscape-Grinstein-Sack-Galanti")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7772fb77bbbd94b6a9ecaecea72ba53714a8cb83")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fa4f8425c56cb122ed1117ca326b5d5c5d970af6")]
 [assembly: System.Reflection.AssemblyProductAttribute("SalaEscape-Grinstein-Sack-Galanti")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SalaEscape-Grinstein-Sack-Galanti")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
