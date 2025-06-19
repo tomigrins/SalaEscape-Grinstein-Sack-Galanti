@@ -36,72 +36,6 @@ public class HomeController : Controller
             return RedirectToAction("Error");
         }
     }
-    // public IActionResult Video()
-    // {
-    //     // string? juegoString = HttpContext.Session.GetString("salaEscape");
-    //     // if (string.IsNullOrEmpty(juegoString))
-    //     // {
-    //     //     return RedirectToAction("Index"); // O redirigir a una vista de error
-    //     // }
-    //     // Juego salaEscape = Objetos.StringToObject<Juego>(HttpContext.Session.GetString("salaEscape"));
-    //     // if (!salaEscape.Escenas.ContainsKey(salaEscape.jugador.SalaActual))
-    //     // {
-    //     //     return RedirectToAction("Index");
-    //     // }
-    //     // ViewBag.debug = "paso por el controller de video!!";
-    //     // ViewBag.video = salaEscape.obtenerVideoDeEscenaActual();
-    //     // ViewBag.proximaView = salaEscape.obtenerProximaViewEnEscena();
-    //     // salaEscape.avanzarView();
-    //     // HttpContext.Session.SetString("salaEscape", Objetos.ObjectToString(salaEscape));
-    //     // return View();  
-    //     string? juegoString = HttpContext.Session.GetString("salaEscape");
-
-    //     //DEBUGGERS
-    //     if (string.IsNullOrEmpty(juegoString))
-    //     {
-    //         ViewBag.debug = "NO HAY juego en sesión (juegoString es null)";
-    //         return View("Index");
-    //     }
-    //     Juego? salaEscape = Objetos.StringToObject<Juego>(juegoString);
-    //     if (string.IsNullOrEmpty(juegoString))
-    //     {
-    //         ViewBag.debug = "salaEscape no existe en sesión";
-    //         return View("Index");
-    //     }
-    //     else
-    //     {
-    //         ViewBag.debug = $"JSON recuperado: {juegoString}";
-    //     }
-
-    //     if (salaEscape == null)
-    //     {
-    //         ViewBag.debug = "ERROR: No se pudo deserializar salaEscape";
-    //         return View("Index");
-    //     }
-    //     if (salaEscape.Escenas == null)
-    //     {
-    //         ViewBag.debug = "ERROR: salaEscape.Escenas es null";
-    //         return View("Index");
-    //     }
-
-
-    //     if (salaEscape.jugador == null)
-    //     {
-    //         ViewBag.debug = "ERROR: salaEscape.jugador es null";
-    //         return View("Index");
-    //     }
-    //     if (!salaEscape.Escenas.ContainsKey(salaEscape.jugador.SalaActual))
-    //     {
-    //         ViewBag.debug = $"ERROR: Escenas no contiene la clave {salaEscape.jugador.SalaActual}";
-    //         return View("Index");
-    //     }
-
-    //     ViewBag.video = salaEscape.obtenerVideoDeEscenaActual();
-    //     ViewBag.proximaView = salaEscape.obtenerProximaViewEnEscena();
-    //     salaEscape.avanzarView();
-    //     HttpContext.Session.SetString("salaEscape", Objetos.ObjectToString(salaEscape));
-    //     return View();
-    // }
     public IActionResult Video()
     {
         string? juegoString = HttpContext.Session.GetString("salaEscape");
@@ -132,18 +66,6 @@ public class HomeController : Controller
         return View();
     }
 
-    // public IActionResult BañoCasamiento()
-    // {
-    //     Juego salaEscape = Objetos.StringToObject<Juego>(HttpContext.Session.GetString("salaEscape"));
-    //     ViewBag.h1 = "Tenés ganas de ir al baño";
-    //     ViewBag.h2 = "Estás en un casamiento. La música suena lejana, la pista de baile vibra, pero algo te incomoda. Esa sensación ineludible... te dan ganas de ir al baño. Sentís una presencia extraña en el ambiente, como si no fueras la única en apurarte a salir de ahí. Presioná el botón si te animás a continuar.";
-    //     ViewBag.boton = "Ir al baño";
-    //     string viewActual = salaEscape.obtenerViewActual();
-    //     HttpContext.Session.SetString("salaEscape", Objetos.ObjectToString(salaEscape));
-    //     ViewBag.viewActual = viewActual;
-    //     salaEscape.avanzarView();
-    //     return View("Mensaje");
-    // }
     public IActionResult Mensaje()
     {
         Juego salaEscape = Objetos.StringToObject<Juego>(HttpContext.Session.GetString("salaEscape"));
