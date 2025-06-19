@@ -28,8 +28,8 @@
                             checkTimeInterval = setInterval(() => {
                                 const currentTime = player.getCurrentTime();
                                 if (currentTime >= 5) { 
-                                    clearInterval(checkTimeInterval)
-                                    window.location.href = "@Url.Action("Mensaje", "Home")"
+                                    clearInterval(checkTimeInterval);
+                                    window.location.href = "@Url.Action("Mensaje", "Home")";
                                 }
                             }, 500)
                         },
