@@ -1,6 +1,8 @@
-html {
-  font-size: 14px;
-  min-height: 100%;
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%; /* necesario para 100vh */
+  font-family: Arial;
 }
 
 @media (min-width: 768px) {
@@ -9,18 +11,16 @@ html {
   }
 }
 
-body {
-  margin: 10px;
-  padding: 10px;
-}
-
 .Mensaje
 {
-  background-size: cover;         
-  background-position: center;    
-  background-repeat: no-repeat; 
-  margin: 20px;
-  margin-top: 5%
+  min-height: 100vh; /* Toda la altura de la pantalla */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 2%;
 
 }
 .Mensaje div h1, .Mensaje div h2, .Mensaje div a{
@@ -28,60 +28,57 @@ body {
   font-family: Arial;
 }
 .Mensaje div{
-  background: rgba(0, 0, 0, 0.13);
-border-radius: 16px;
-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-backdrop-filter: blur(3.5px);
--webkit-backdrop-filter: blur(3.5px);
-border: 1px solid rgba(128, 128, 128, 0.07);
-text-align: center;
+  background: rgba(255, 255, 255, 0.13); /* Fondo semi-transparente */
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: center;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  max-width: 600px;
+  width: 90%;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
 .Mensaje div h1{
+  font-size: 2.5rem;
   font-weight: bold;
-    margin-bottom: 3%;
-    font-size: 50px;
-    text-transform:uppercase;
+  text-transform: uppercase;
+  color: white;
+  margin-bottom: 1rem;
   }
   
   .Mensaje div h2{
-  margin-bottom: 10%;
+    color: white;  margin-bottom: 2rem;
   }
 
 .Mensaje div button{
-  margin-bottom: 10%;
-  padding: 0.5%;
-  padding-left: 10%;
-  padding-right: 10%;
-  font-size: 10px;
+  padding: 0.5rem 2rem;
+  font-size: 1rem;
   text-transform: uppercase;
   color: white;
   background-color: #13139bc4;
   border-radius: 25px;
-  border:none;
+  border: none;
+  cursor: pointer;
+  border: 1px solid #13139b;
  
 }
 
-.Mensaje div button:hover {
-  color: #13139bc4;
-  background-color: #13139b10;
+.Mensaje div button:hover {color: #13139bc4;
+  background-color: #13139b63;
+  border: 1px solid #13139b;
+  color: white;
 }
 
 
 .Clave
 {
-  background-image: url('/Imagenes/Momento clave.png');
-  background-size: cover;         /* Ajusta la imagen al tamaño del contenedor */
-  background-repeat: no-repeat;   /* Evita que se repita */
-  background-position: center;    /* Centra la imagen */
+  background-image: url('/Imagenes/Momento_clave.png');
 }
 
 .Error
 {
   background-image: url('/Imagenes/Perdiste.png');
-  background-size: cover;         /* Ajusta la imagen al tamaño del contenedor */
-  background-repeat: no-repeat;   /* Evita que se repita */
-  background-position: center;    /* Centra la imagen */
   
 }
 
@@ -89,9 +86,6 @@ text-align: center;
 .Pasaste
 {
   background-image: url('/Imagenes/Pasaste.png');
-  background-size: cover;         /* Ajusta la imagen al tamaño del contenedor */
-  background-repeat: no-repeat;   /* Evita que se repita */
-  background-position: center;    /* Centra la imagen */
 }
 
 footer {

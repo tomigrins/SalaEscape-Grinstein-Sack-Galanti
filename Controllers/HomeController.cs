@@ -77,9 +77,25 @@ public class HomeController : Controller
         ViewBag.viewActual = viewActual.Tipo;
         ViewBag.proximaAccion = viewActual.ProximaAccion;
 
-        salaEscape.avanzarView();
         HttpContext.Session.SetString("salaEscape", Objetos.ObjectToString(salaEscape));
         return View("Mensaje");
     }
+    public IActionResult Continuar(){
+        Juego salaEscape = Objetos.StringToObject<Juego>(HttpContext.Session.GetString("salaEscape"));
+        salaEscape.avanzarView();
 
+        string tipo = salaEscape.obtenerTipoViewActual();
+
+        HttpContext.Session.SetString("salaEscape", Objetos.ObjectToString(salaEscape));
+        switch (tipo)
+        {
+            case "Video":
+                return RedirectToAction("Video");
+            case "Mensaje":
+                return RedirectToAction("Mensaje");
+            default:
+                ViewBag.debug = "No se encontró el tipo de la view";
+                return View("Index");
+        }
+    }
 }
