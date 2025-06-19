@@ -36,17 +36,6 @@ public class HomeController : Controller
             return RedirectToAction("Error");
         }
     }
-    public IActionResult Error()
-    {
-        Juego salaEscape = Objetos.StringToObject<Juego>(HttpContext.Session.GetString("salaEscape"));
-        ViewBag.h1 = "El código ingresado no es correcto.";
-        ViewBag.h2 = "Presione el botón para volver a la sala";
-        ViewBag.boton = "Volver";
-        string viewActual = salaEscape.obtenerViewActual();
-        HttpContext.Session.SetString("salaEscape", Objetos.ObjectToString(salaEscape));
-        ViewBag.viewActual = viewActual;
-        return View("Mensaje");
-    }
     // public IActionResult Video()
     // {
     //     // string? juegoString = HttpContext.Session.GetString("salaEscape");

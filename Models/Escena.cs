@@ -8,7 +8,6 @@ public class Escena
         Id = id;
         Nombre = nombre;
         Views = views;
-        Videos = videos;
         CodigoCorrecto = cod;
 
     }
