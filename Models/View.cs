@@ -8,9 +8,10 @@ public class View
     public string? Titulo {get; set;}
     public string? BotonTexto { get; set; }
     public string? ProximaAccion { get; set; }
+    public string? claseMensaje {get; set;}
 
     public View(string tipo, string? videoId = null, int? segundoDeCorte = null,
-    string? texto = null, string? botonTexto = null, string? proximaAccion = null, string? titulo = null)
+    string? texto = null, string? botonTexto = null, string? proximaAccion = null, string? titulo = null, string? claseMensaje = null)
     {
         Tipo = tipo;
         VideoId = videoId;
@@ -18,6 +19,6 @@ public class View
         Texto = texto;
         BotonTexto = botonTexto;
         Titulo = titulo;
-
+        this.claseMensaje = claseMensaje;
     }
 }

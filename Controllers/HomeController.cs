@@ -53,7 +53,7 @@ public class HomeController : Controller
         if (viewActual == null || viewActual.Tipo != "Video")
         {
             ViewBag.debug = "La view actual no es de tipo Video.";
-            return RedirectToAction("Index");
+            return View("Index");
         }
 
         ViewBag.video = viewActual.VideoId;
@@ -76,9 +76,10 @@ public class HomeController : Controller
         ViewBag.boton = viewActual.BotonTexto;
         ViewBag.viewActual = viewActual.Tipo;
         ViewBag.proximaAccion = viewActual.ProximaAccion;
+        ViewBag.claseMensaje = viewActual.claseMensaje;
 
         HttpContext.Session.SetString("salaEscape", Objetos.ObjectToString(salaEscape));
-        return View("Mensaje");
+        return View();
     }
     public IActionResult Continuar(){
         Juego salaEscape = Objetos.StringToObject<Juego>(HttpContext.Session.GetString("salaEscape"));
