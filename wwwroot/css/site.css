@@ -70,28 +70,37 @@ text-align: center;
 
 .Clave
 {
-  background-image: url('Imagenes/Momento clave.png');
+  background-image: url('/Imagenes/Momento clave.png');
+  background-size: cover;         /* Ajusta la imagen al tamaño del contenedor */
+  background-repeat: no-repeat;   /* Evita que se repita */
+  background-position: center;    /* Centra la imagen */
 }
 
 .Error
 {
-  background-image: url('Imagenes/Perdiste.png');
+  background-image: url('/Imagenes/Perdiste.png');
+  background-size: cover;         /* Ajusta la imagen al tamaño del contenedor */
+  background-repeat: no-repeat;   /* Evita que se repita */
+  background-position: center;    /* Centra la imagen */
   
 }
 
 
 .Pasaste
 {
-  background-image: url('Imagenes/Pasaste.png');
+  background-image: url('/Imagenes/Pasaste.png');
+  background-size: cover;         /* Ajusta la imagen al tamaño del contenedor */
+  background-repeat: no-repeat;   /* Evita que se repita */
+  background-position: center;    /* Centra la imagen */
 }
 
 footer {
-  margin-top: 10px;
-  padding: 10px;
-  background-color: #f8f9fa;
-  border-top: 1px solid #e9ecef;
+  display: none;
 }
 
+header{
+  display: none;
+}
 
 #player {
     position: absolute;
