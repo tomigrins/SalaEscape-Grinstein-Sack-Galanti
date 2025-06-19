@@ -94,9 +94,22 @@ public class HomeController : Controller
                 return RedirectToAction("Video");
             case "Mensaje":
                 return RedirectToAction("Mensaje");
+            case "Juego":
+                return RedirectToAction("Juego");
             default:
                 ViewBag.debug = "No se encontró el tipo de la view";
                 return View("Index");
         }
+    }
+    public IActionResult Juego(){
+        Juego salaEscape = Objetos.StringToObject<Juego>(HttpContext.Session.GetString("salaEscape"));
+        View viewActual = salaEscape.obtenerViewActualObjeto();
+        if (viewActual == null || viewActual.Tipo != "Juego")
+        {
+            ViewBag.debug = "La view actual no es de tipo Juego.";
+            return View("Index");
+        }
+        string nombreJuego = viewActual.nombreJuego;
+        return View(nombreJuego);
     }
 }
