@@ -7,17 +7,82 @@ public class Juego
     public void inicializarJuego()
     {
         Escenas = new Dictionary<int, Escena> {
-            {
-                0, new Escena(0, "Casamiento", new List<View> {
-                    new View("Video", "ardtvdR28SQ", 30, null, null, "Mensaje"),
-                    new View("Mensaje", null,null, "Estás en un casamiento. La música suena lejana, la pista de baile vibra, pero algo te incomoda. Esa sensación ineludible... te dan ganas de ir al baño. Sentís una presencia extraña en el ambiente, como si no fueras la única en apurarte a salir de ahí. Presioná el botón si te animás a continuar.", "Ir al baño", "Video", "Te dan ganas de ir al baño", "Baño"),
-                    new View("Video", "wpHC614ZHMY", 20, null, null, "Mensaje"),
-                    new View("Mensaje", null, null, "Te sentás a descansar y sacás el celular. Abrís un jueguito para pasar el rato… pero algo no cierra. Los colores cambian, los sonidos se distorsionan. Las reglas del juego parecen inventarse solas. Tu reflejo en la pantalla no te sigue. Jugá si te animás. Pero sabé esto: algo se está por mover.", "Jugar", "Juego", "Estás en el inodoro.", "Baño"),
-                    new View("Juego", null, null, null, null, "Ingreso", null, null, "CazadorGemasJuego")
-                }, "FIAMBREMATRIMONIO")
-            }
-        };
-
+        {
+            0,
+            new Escena(0, "Casamiento", new List<View> {
+                new View(
+                    "Video",
+                    "ardtvdR28SQ",
+                    1,
+                    null,
+                    null,
+                    "Mensaje"),
+                new View(
+                    "Mensaje",
+                    null,
+                    null,
+                    "Estás en un casamiento. La música suena lejana, la pista de baile vibra, pero algo te incomoda. Esa sensación ineludible... te dan ganas de ir al baño. Sentís una presencia extraña en el ambiente, como si no fueras la única en apurarte a salir de ahí. Presioná el botón si te animás a continuar.",
+                    "Ir al baño",
+                    "Video",
+                    "Te dan ganas de ir al baño",
+                    "Baño"),
+                new View(
+                    "Video",
+                    "wpHC614ZHMY",
+                    1,
+                    null,
+                    null,
+                    "Mensaje"),
+                new View(
+                    "Mensaje",
+                    null,
+                    null,
+                    "Te sentás a descansar y sacás el celular. Abrís un jueguito para pasar el rato… pero algo no cierra. Los colores cambian, los sonidos se distorsionan. Las reglas del juego parecen inventarse solas. Tu reflejo en la pantalla no te sigue. Jugá si te animás. Pero sabé esto: algo se está por mover.",
+                    "Jugar",
+                    "Juego",
+                    "Estás en el inodoro.",
+                    "Baño"),
+                new View(
+                    "Juego",
+                    null,
+                    null,
+                    null,
+                    null,
+                    "Ingreso",
+                    null,
+                    null,
+                    "Rompecabezas",
+                    new Dictionary<string, object> {
+                        { "Cartas", new List<string> {
+                            "/imagenes/memotest/inodoro.png",
+                            "/imagenes/memotest/casados.png",
+                            "/imagenes/memotest/celular.png",
+                            "/imagenes/memotest/puerta.png",
+                            "/imagenes/memotest/alianzas.png",
+                            "/imagenes/memotest/cama.png",
+                            "/imagenes/memotest/camara.png",
+                            "/imagenes/memotest/montaña_rusa.png"
+                        }},
+                        {"Pares especiales", new List<int>{
+                            0, 4, 7
+                        }},
+                        {
+                            "Letras reveladas", new List<char>()
+                        },
+                        {
+                            "CodigoIngresado", (string)""
+                        },
+                        {
+                            "JuegoFinalizado", (bool)false
+                        },
+                        {
+                            "Ganó", (bool)false
+                        }
+                    })
+                },
+                    "FIAMBREMATRIMONIO" )
+                }
+            };
         jugador = new Jugador();
     }
 
@@ -36,13 +101,13 @@ public class Juego
 
     public string? obtenerVideoDeEscenaActual()
     {
-        var view = obtenerViewActualObjeto();
+        View view = obtenerViewActualObjeto();
         return view?.Tipo == "Video" ? view.VideoId : null;
     }
 
     public int? obtenerSegundoDeCorteDeEscenaActual()
     {
-        var view = obtenerViewActualObjeto();
+        View view = obtenerViewActualObjeto();
         return view?.Tipo == "Video" ? view.SegundoDeCorte : null;
     }
 
@@ -108,15 +173,15 @@ public class Juego
     }
 
     public View? pasarDeSala()
-{
-    Escena? proxima = ObtenerEscena();
-    if (proxima == null)
-        return null; 
+    {
+        Escena? proxima = ObtenerEscena();
+        if (proxima == null)
+            return null; 
 
-    jugador.pasarDeSala(proxima.Id);
-    jugador.numViewActual = 0;
-    return proxima.Views[0];
-}
+        jugador.pasarDeSala(proxima.Id);
+        jugador.numViewActual = 0;
+        return proxima.Views[0];
+    }
 
 
     public int obtenerViewParaError()
