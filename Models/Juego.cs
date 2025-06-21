@@ -51,7 +51,7 @@ public class Juego
                     "Ingreso",
                     null,
                     null,
-                    "Rompecabezas",
+                    "Memotest",
                     new Dictionary<string, object> {
                         { "Cartas", new List<string> {
                             "/imagenes/memotest/inodoro.png",
@@ -76,7 +76,7 @@ public class Juego
                             "JuegoFinalizado", (bool)false
                         },
                         {
-                            "Ganó", (bool)false
+                            "Gano", (bool)false
                         }
                     })
                 },

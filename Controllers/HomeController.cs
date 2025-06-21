@@ -81,7 +81,7 @@ public class HomeController : Controller
         HttpContext.Session.SetString("salaEscape", Objetos.ObjectToString(salaEscape));
         return View();
     }
-    public IActionResult Continuar(){
+    public IActionResult Continuar() {
         Juego salaEscape = Objetos.StringToObject<Juego>(HttpContext.Session.GetString("salaEscape"));
         salaEscape.avanzarView();
 
@@ -95,13 +95,15 @@ public class HomeController : Controller
             case "Mensaje":
                 return RedirectToAction("Mensaje");
             case "Juego":
-                return RedirectToAction("Juego");
+                View viewActual = salaEscape.obtenerViewActualObjeto();
+                string juegoEspecifico = viewActual.nombreJuego;
+                return RedirectToAction(juegoEspecifico);
             default:
                 ViewBag.debug = "No se encontró el tipo de la view";
                 return View("Index");
         }
     }
-    public IActionResult Juego(){
+    public IActionResult Memotest(){
         Juego salaEscape = Objetos.StringToObject<Juego>(HttpContext.Session.GetString("salaEscape"));
         View viewActual = salaEscape.obtenerViewActualObjeto();
         if (viewActual == null || viewActual.Tipo != "Juego")
@@ -110,6 +112,12 @@ public class HomeController : Controller
             return View("Index");
         }
         string nombreJuego = viewActual.nombreJuego;
+        ViewBag.cartas = viewActual.Memotest["Cartas"];
+        ViewBag.paresEspeciales = viewActual.Memotest["Pares especiales"];
+        ViewBag.letrasReveladas = viewActual.Memotest["Letras reveladas"];
+        ViewBag.CodigoIngresado = viewActual.Memotest["CodigoIngresado"];
+        ViewBag.JuegoFinalizado = viewActual.Memotest["JuegoFinalizado"];
+        ViewBag.Gano = viewActual.Memotest["Gano"];
         return View(nombreJuego);
     }
 }
