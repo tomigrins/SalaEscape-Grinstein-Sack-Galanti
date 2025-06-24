@@ -1,0 +1,157 @@
+@section Scripts {
+    @using System.Text.Json
+    @{
+        List<int> paresEspecialesList = ViewBag.paresEspeciales as List<int>;
+        var paresEspecialesJson = JsonSerializer.Serialize(paresEspecialesList);
+    }
+
+    <script>
+    const cartas = document.querySelectorAll(".carta");
+    const paresEspeciales = @Html.Raw(paresEspecialesJson);
+
+    const titulos = {
+        0: "@ViewBag.Titulo0",
+        1: "@ViewBag.Titulo1",
+        9: "@ViewBag.Titulo9"
+    };
+
+    const mensajes = {
+        0: `@Html.Raw(ViewBag.Mensaje0)`,
+        1: `@Html.Raw(ViewBag.Mensaje1)`,
+        9: `@Html.Raw(ViewBag.Mensaje9)`
+    };
+
+    let primera = null;
+    let segunda = null;
+    let puedeClickear = true;
+
+    function mostrarMensaje(indice) {
+        document.getElementById("tituloMensaje").innerText = titulos[indice];
+        document.getElementById("textoMensaje").innerHTML = mensajes[indice];
+        document.getElementById("mensajeEspecial").setAttribute("data-indice", indice);
+        document.getElementById("mensajeEspecial").style.display = "block";
+    }
+
+    function cerrarMensaje() {
+        document.getElementById("mensajeEspecial").style.display = "none";
+        puedeClickear = true;
+        primera = null;
+        segunda = null;
+        document.getElementById("resultadoVerificacion").innerText = "";
+    }
+
+    function validarCodigo() {
+        const input = document.getElementById("inputCodigo").value.toUpperCase().trim();
+        const indice = parseInt(document.getElementById("mensajeEspecial").getAttribute("data-indice"));
+        const partes = {
+            0: "ROEMBRU",
+            1: "INODO",
+            9: "JADO"
+        };
+
+        if (input === partes[indice]) {
+            cerrarMensaje();
+        } else {
+            document.getElementById("resultadoVerificacion").innerText = "Código incorrecto, intentá de nuevo.";
+        }
+
+        return false;
+    }
+
+    cartas.forEach(carta => {
+        carta.addEventListener("click", () => {
+            if (!puedeClickear || carta.classList.contains("descubierta")) return;
+
+            const img = carta.querySelector("img");
+            img.classList.add("visible");
+            carta.classList.add("descubierta");
+
+            if (!primera) {
+                primera = carta;
+            } else {
+                segunda = carta;
+                puedeClickear = false;
+
+                const src1 = primera.getAttribute("data-src");
+                const src2 = segunda.getAttribute("data-src");
+
+                if (src1 === src2) {
+                    const indice1 = parseInt(primera.getAttribute("data-indice"));
+                    const indice2 = parseInt(segunda.getAttribute("data-indice"));
+                    let especial = null;
+
+                    if (paresEspeciales.includes(indice1)) especial = indice1;
+                    else if (paresEspeciales.includes(indice2)) especial = indice2;
+
+                    if (especial !== null) {
+                        mostrarMensaje(especial);
+                        // No seteamos `puedeClickear = true` acá, se hace al cerrar el mensaje
+                    } else {
+                        setTimeout(() => {
+                            puedeClickear = true;
+                            primera = null;
+                            segunda = null;
+                        }, 500);
+                    }
+                } else {
+                    setTimeout(() => {
+                        primera.querySelector("img").classList.remove("visible");
+                        segunda.querySelector("img").classList.remove("visible");
+                        primera.classList.remove("descubierta");
+                        segunda.classList.remove("descubierta");
+                        primera = null;
+                        segunda = null;
+                        puedeClickear = true;
+                    }, 1000);
+                }
+            }
+        });
+    });
+    </script>
+}
+
+
+
+<h1>Memotest</h1>
+<div id="Memotest" class="grid">
+    @for (int i = 0; i < ViewBag.cartas.Count; i++){
+        <div class="carta" data-indice="@i" data-src="@ViewBag.cartas[i]">
+            <img src="@ViewBag.cartas[i]" class="oculta" />
+        </div>
+    }
+</div>
+
+<div id="mensajeEspecial" style="display:none; margin-top:20px;" data-indice="">
+    <h2 id="tituloMensaje"></h2>
+    <p id="textoMensaje"></p>
+    <form onsubmit="return validarCodigo()" style="margin-top:10px;">
+        <input type="text" id="inputCodigo" placeholder="Código encontrado" />
+        <button type="submit">Verificar y seguir jugando</button>
+    </form>
+    <button type="button" onclick="cerrarMensaje()">Cerrar</button>
+    <p id="resultadoVerificacion" style="color:red;"></p>
+</div>
+
+
+
+@if (ViewBag.juegoFinalizado){
+    <form method="post" asp-controller="Juego" asp-action="ValidarCodigo">
+        <label for="codigo">Ingresá el código:</label>
+        <input type="text" name="codigo" value="@ViewBag.codigoIngresado" />
+        <button type="submit">Validar</button>
+    </form>
+
+    @if (ViewBag.gano)
+    {
+        <p>🎉 ¡Ganaste! El código era correcto.</p>
+        <a href="@Url.Action("@ViewBag.proximaView", "Home")">
+            <button>
+                Continuar
+            </button>
+        </a>
+    }
+    else
+    {
+        <p>❌ Código incorrecto. Tenés que volver a jugar.</p>
+    }
+}

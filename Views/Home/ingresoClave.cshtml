@@ -1,11 +1,19 @@
-<!-- @{
-    ViewData["Title"] = "Clave";
+@{
+    ViewData["Title"] = "Index";
 }
 
-<main class = "Mensaje Clave">
+<main class="Mensaje @ViewBag.ClaseMensaje">
     <div>
         <h1>@ViewBag.h1</h1>
         <h2>@ViewBag.h2</h2>
-        <a href="@Url.Action("Continuar", "Home")"><button>@ViewBag.boton</button></a>
-    <div>
-</main>  -->
+        @if(ViewBag.error != null) {
+            <p style="color:red;">@ViewBag.error</p>
+        }
+        <form action="@Url.Action("@ViewBag.proximaAccion", "Juego")" method = "post">
+            <input type="hidden" name="i" value="@ViewBag.indice" />
+            Ingrese el código encontrado en esta parte:
+            <input type="text" placeholder="Código encontrado" name="codigo">
+            <button type="submit" class="boton">@ViewBag.boton</button class= "boton">
+        </form>
+    </div> 
+</main>
