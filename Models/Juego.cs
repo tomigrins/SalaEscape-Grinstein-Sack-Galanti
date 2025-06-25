@@ -54,11 +54,22 @@ public class Juego
                             null,
                             null,
                             null,
-                            null,
+                            "Continuar",
                             "IngresoClave",
                             null,
                             null,
                             "https://view.genially.com/685ab2b73ef4f5a83fdda5bb"
+                        ),
+                        new View(
+                            "IngresoClave",
+                            null,
+                            null,
+                            "¿No te acordás el código?",
+                            "Validar código",
+                            "Mensaje",
+                            "Ingresá el código:",
+                            "Ingreso",
+                            null
                         )
                         
                     },
@@ -95,26 +106,6 @@ public class Juego
     {
         View view = obtenerViewActualObjeto();
         return view?.Tipo == "Video" ? view.SegundoDeCorte : null;
-    }
-
-    public string? obtenerTextoDeViewActual()
-    {
-        return obtenerViewActualObjeto()?.Texto;
-    }
-
-    public string? obtenerTituloDeViewActual()
-    {
-        return obtenerViewActualObjeto()?.Titulo;
-    }
-
-    public string? obtenerBotonTextoDeViewActual()
-    {
-        return obtenerViewActualObjeto()?.BotonTexto;
-    }
-
-    public string? obtenerProximaAccionDeViewActual()
-    {
-        return obtenerViewActualObjeto()?.ProximaAccion;
     }
 
     public View obtenerViewActualObjeto()

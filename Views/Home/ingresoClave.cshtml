@@ -5,16 +5,18 @@
 <main class="Mensaje @ViewBag.ClaseMensaje">
     <div>
         <h1>@ViewBag.h1</h1>
-        <h2>@ViewBag.h2</h2>
         @if(ViewBag.error != null) {
             <p style="color:red;">@ViewBag.error</p>
         }
-        <form action="@Url.Action("@ViewBag.proximaAccion", "Juego")" method = "post">
-            <input type="hidden" name="i" value="@ViewBag.indice" />
+        <form action="@Url.Action("ValidarCodigo", "Juego")" method = "post">
             Ingrese el código encontrado en esta parte:
             <input type="text" placeholder="Código encontrado" name="codigo">
             <button type="submit" class="boton">@ViewBag.boton</button class= "boton">
         </form>
+        <h2 style = "color:black;">@ViewBag.h2</h2>
+        <a href="@Url.Action("VolverALaViewAnterior", "Home")">
+            <button >Volver al minijuego</button>
+        </a>
     </div> 
 </main>
 ..

@@ -21,14 +21,13 @@ public class HomeController : Controller
         HttpContext.Session.SetString("salaEscape", Objetos.ObjectToString(salaEscape));
         return RedirectToAction("Video");
     }
-    public IActionResult ValidarCodigo(string codigo, int idSalaAnterior)
+    public IActionResult ValidarCodigo(string codigo)
     {
         Juego salaEscape = Objetos.StringToObject<Juego>(HttpContext.Session.GetString("salaEscape"));
         ViewBag.salaEscape = Objetos.StringToObject<Juego>(HttpContext.Session.GetString("salaEscape"));
         if (salaEscape.Escenas[salaEscape.jugador.SalaActual].CodigoCorrecto == codigo)
         {
-            string proximaView = salaEscape.obtenerProximaViewEnEscena();
-            return View("Sala" + proximaView);
+            return RedirectToAction("Continuar");
         }
         else
         {
@@ -95,7 +94,7 @@ public class HomeController : Controller
                 return RedirectToAction("Mensaje");
             case "Juego":
                 return RedirectToAction("Juego");
-            case "ingresoClave":
+            case "IngresoClave":
                 return RedirectToAction("IngresoClave");
             default:
                 ViewBag.debug = "No se encontró el tipo de la view";
@@ -108,32 +107,21 @@ public class HomeController : Controller
 
         View viewActual = salaEscape.obtenerViewActualObjeto();
         ViewBag.urlJuego = viewActual.urlJuego;
+        ViewBag.boton = viewActual.BotonTexto;
         HttpContext.Session.SetString("salaEscape", Objetos.ObjectToString(salaEscape));
 
         return View();
     }
     
-    // public IActionResult ValidarParteCodigo(int i, string codigo)
-    // {
-    //     Juego salaEscape = Objetos.StringToObject<Juego>(HttpContext.Session.GetString("salaEscape"));
-    //     View viewActual = salaEscape.obtenerViewActualObjeto();
-
-    //     if ( == null) return View("Index");
-
-    //     Dictionary<int, string> partesCorrectas = (Dictionary<int, string>)viewActual.Memotest["PartesCodigo"];
-    //     Dictionary<int, bool> partesValidadas = (Dictionary<int, bool>)viewActual.Memotest["PartesValidadas"];
-
-    //     if (partesCorrectas.ContainsKey(i) && codigo.ToUpper() == partesCorrectas[i].ToUpper())
-    //     {
-    //         partesValidadas[i] = true;
-    //         HttpContext.Session.SetString("salaEscape", Objetos.ObjectToString(salaEscape));
-    //         return RedirectToAction("Memotest");
-    //     }
-    //     else
-    //     {
-    //         ViewBag.error = "El código es incorrecto. Intentá de nuevo.";
-    //         return RedirectToAction("MensajeDeParEspecial", new { i });
-    //     }
-    // }
-
+    public IActionResult IngresoClave(){
+        Juego salaEscape = Objetos.StringToObject<Juego>(HttpContext.Session.GetString("salaEscape"));
+        View viewActual = salaEscape.obtenerViewActualObjeto();
+        ViewBag.h1 = viewActual.Titulo;
+        ViewBag.error = "El código ingresado no es correcto";
+        ViewBag.h2 = viewActual.texto;
+        ViewBag.boton = viewActual.BotonTexto;
+        ViewBag.ClaseMensaje = viewActual.claseMensaje;
+        return View();
+    }
+    
 }
