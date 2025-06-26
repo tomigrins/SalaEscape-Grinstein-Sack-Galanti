@@ -23,16 +23,19 @@ public class HomeController : Controller
     }
     public IActionResult ValidarCodigo(string codigo)
     {
+        
         Juego salaEscape = Objetos.StringToObject<Juego>(HttpContext.Session.GetString("salaEscape"));
-        ViewBag.salaEscape = Objetos.StringToObject<Juego>(HttpContext.Session.GetString("salaEscape"));
-        if (salaEscape.Escenas[salaEscape.jugador.SalaActual].CodigoCorrecto == codigo)
-        {
+        bool igual = salaEscape.obtenerEscenaActual().IgualarCodigo(codigo);
+        if(igual)
             return RedirectToAction("Continuar");
-        }
-        else
-        {
-            ViewBag.SalaActual = salaEscape.obtenerViewParaError();
-            return RedirectToAction("Error");
+        else{
+            View viewActual = salaEscape.obtenerViewActualObjeto();
+            ViewBag.h1 = viewActual.Titulo;
+            ViewBag.error = "El código ingresado no es correcto";
+            ViewBag.h2 = viewActual.Texto;
+            ViewBag.boton = viewActual.BotonTexto;
+            ViewBag.ClaseMensaje = viewActual.claseMensaje;
+            return View("ingresoClave");
         }
     }
     public IActionResult Video()
@@ -63,6 +66,12 @@ public class HomeController : Controller
         HttpContext.Session.SetString("salaEscape", Objetos.ObjectToString(salaEscape));
 
         return View();
+    }
+    public IActionResult VolverALaViewAnterior(){
+        Juego salaEscape = Objetos.StringToObject<Juego>(HttpContext.Session.GetString("salaEscape"));
+        salaEscape.jugador.numViewActual = salaEscape.jugador.numViewActual - 2;
+        HttpContext.Session.SetString("salaEscape", Objetos.ObjectToString(salaEscape));
+        return RedirectToAction("Continuar");
     }
 
     public IActionResult Mensaje()
@@ -106,22 +115,25 @@ public class HomeController : Controller
         Juego salaEscape = Objetos.StringToObject<Juego>(HttpContext.Session.GetString("salaEscape"));
 
         View viewActual = salaEscape.obtenerViewActualObjeto();
+        return RedirectToAction(viewActual.tipoJuego);
+    }
+    public IActionResult Genially(){
+        Juego salaEscape = Objetos.StringToObject<Juego>(HttpContext.Session.GetString("salaEscape"));
+
+        View viewActual = salaEscape.obtenerViewActualObjeto();
         ViewBag.urlJuego = viewActual.urlJuego;
         ViewBag.boton = viewActual.BotonTexto;
         HttpContext.Session.SetString("salaEscape", Objetos.ObjectToString(salaEscape));
-
-        return View();
+        return View("JuegoGenially");
     }
     
     public IActionResult IngresoClave(){
         Juego salaEscape = Objetos.StringToObject<Juego>(HttpContext.Session.GetString("salaEscape"));
         View viewActual = salaEscape.obtenerViewActualObjeto();
         ViewBag.h1 = viewActual.Titulo;
-        ViewBag.error = "El código ingresado no es correcto";
-        ViewBag.h2 = viewActual.texto;
+        ViewBag.h2 = viewActual.Texto;
         ViewBag.boton = viewActual.BotonTexto;
         ViewBag.ClaseMensaje = viewActual.claseMensaje;
         return View();
     }
-    
 }

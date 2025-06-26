@@ -8,9 +8,9 @@
         @if(ViewBag.error != null) {
             <p style="color:red;">@ViewBag.error</p>
         }
-        <form action="@Url.Action("ValidarCodigo", "Juego")" method = "post">
+        <form action="@Url.Action("ValidarCodigo", "Home")" method = "post">
             Ingrese el código encontrado en esta parte:
-            <input type="text" placeholder="Código encontrado" name="codigo">
+            <input type="password" placeholder="Código encontrado" name="codigo">
             <button type="submit" class="boton">@ViewBag.boton</button class= "boton">
         </form>
         <h2 style = "color:black;">@ViewBag.h2</h2>

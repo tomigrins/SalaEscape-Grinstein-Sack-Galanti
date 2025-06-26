@@ -54,11 +54,12 @@ public class Juego
                             null,
                             null,
                             null,
-                            "Continuar",
+                            "Siguiente",
                             "IngresoClave",
                             null,
                             null,
-                            "https://view.genially.com/685ab2b73ef4f5a83fdda5bb"
+                            "https://view.genially.com/685ab2b73ef4f5a83fdda5bb",
+                            "Genially"
                         ),
                         new View(
                             "IngresoClave",
@@ -70,10 +71,83 @@ public class Juego
                             "Ingresá el código:",
                             "Ingreso",
                             null
+                        ),
+                        new View(
+                            "Mensaje",
+                            null,
+                            null,
+                            "¡Enhorabuena! Presiona el botón para conocer tu próximo destino",
+                            "Continuar",
+                            "Mensaje",
+                            "¡Pasaste!",
+                            "Pasaste",
+                            null,
+                            "Mapas",
+                            new List<string>(){
+                                "/imagenes/mapas/playa.jpg",
+                                "/imagenes/mapas/montaña.jpg"
+                                    //TERMINAR ESTO
+                            }
                         )
                         
                     },
                     "INODOROEMBRUJADO"
+                )
+            },
+            {
+                1,
+                new Escena(
+                    1,
+                    "MONTAÑA RUSA",
+                    new List<View>{
+                        new View(
+                            "Mensaje",
+                            null,
+                            null,
+                            @"Algo chorreó del borde del inodoro cuando lo cerraste. Una carcajada hueca resonó, como si las cañerías rieran de vos.  
+                            Un destello rojo iluminó el piso... y todo se volvió oscuro.
+                            Cuando abrís los ojos, ya no estás en el baño.  
+                            El viento te golpea la cara. Estás atada a un asiento que vibra, cruje.  
+                            Las vías bajo tus pies se deshacen y una voz metálica murmura:
+                            “Ya no hay marcha atrás”",
+                            "Continuar",
+                            "Video",
+                            "El inodoro estaba embrujado",
+                            "Baño"
+                        ),
+                        new View(
+                            "Video",
+                            "aJqOav3Lfcc",
+                            1,
+                            null,
+                            null,
+                            "Mensaje"
+                        ),
+                        new View(
+                            "Mensaje",
+                            null,
+                            null,
+                            @"La montaña rusa trepa. El aire se vuelve más fino, más frío.
+                            Abajo, todo es miniatura. Excepto el miedo.
+                            Frente a vos, aparecen tres mapas. No sabés cómo llegaron a tus manos.
+                            Solo uno traza un camino hacia una playa segura.
+                            Los otros… bueno, no hay tiempo.
+                            Tenés que elegir antes de caer.",
+                            "Continuar",
+                            "Juego",
+                            "La gran elección",
+                            "MontañaRusa"
+                        ),
+                        new View(
+                            "Juego",
+                            null,
+                            null,
+                            null,
+                            null,
+                            ""
+                        )
+                    },
+                    "1234"
                 )
             }
         };
@@ -124,7 +198,6 @@ public class Juego
                 return new View("Mensaje", null, null, "¡Felicidades! Escapaste.", null, null, "Fin");
             }
         }
-
         return escenaActual.Views[jugador.numViewActual];
     }
 

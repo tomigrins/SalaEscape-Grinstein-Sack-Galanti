@@ -10,11 +10,13 @@ public class View
     public string? ProximaAccion { get; set; }
     public string? claseMensaje {get; set;}
     public string? urlJuego {get; set;}
+    public string? tipoJuego {get;set;}
+    public List<string>? mapas {get; set;}
 
     public View(string tipo, string? videoId = null, int? segundoDeCorte = null,
     string? texto = null, string? botonTexto = null, string? proximaAccion = null,
     string? titulo = null, string? claseMensaje = null, 
-    string? urlJuego = null)
+    string? urlJuego = null, string? tipoJuego = null, List<string>? mapas = null)
     {
         Tipo = tipo;
         VideoId = videoId;
@@ -24,5 +26,6 @@ public class View
         Titulo = titulo;
         this.claseMensaje = claseMensaje;
         this.urlJuego = urlJuego;
+        this.tipoJuego = tipoJuego;
     }
 }

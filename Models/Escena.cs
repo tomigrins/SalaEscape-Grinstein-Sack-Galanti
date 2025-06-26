@@ -9,6 +9,12 @@ public class Escena
         Nombre = nombre;
         Views = views;
         CodigoCorrecto = cod;
-
     }
+    public bool IgualarCodigo (string codigo){
+            bool igual = false;
+            if(codigo == CodigoCorrecto){
+                igual = true;
+            }
+            return igual;
+        }
 }
