@@ -81,13 +81,7 @@ public class Juego
                             "Mensaje",
                             "¡Pasaste!",
                             "Pasaste",
-                            null,
-                            "Mapas",
-                            new List<string>(){
-                                "/imagenes/mapas/playa.jpg",
-                                "/imagenes/mapas/montaña.jpg"
-                                    //TERMINAR ESTO
-                            }
+                            null
                         )
                         
                     },
@@ -142,9 +136,18 @@ public class Juego
                             "Juego",
                             null,
                             null,
+                            "Respirá hondo y tomate un tiempo para decidir tu destino. Respirá hondo... Una decisión incorrecta podría costarte la vida.",
+                            "Continuar",
+                            "IngresoClave",
+                            "Elige tu destino",
                             null,
                             null,
-                            ""
+                            "Mapas",
+                            new List<string>(){
+                                "/imagenes/mapas/playa.jpg",
+                                "/imagenes/mapas/montaña.jpg",
+                                "/imagenes/mapas/ciudad.avif"
+                            }
                         )
                     },
                     "1234"

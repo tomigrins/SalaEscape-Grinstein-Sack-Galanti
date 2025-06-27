@@ -113,18 +113,26 @@ public class HomeController : Controller
     public IActionResult Juego()
     {
         Juego salaEscape = Objetos.StringToObject<Juego>(HttpContext.Session.GetString("salaEscape"));
-
         View viewActual = salaEscape.obtenerViewActualObjeto();
         return RedirectToAction(viewActual.tipoJuego);
     }
     public IActionResult Genially(){
         Juego salaEscape = Objetos.StringToObject<Juego>(HttpContext.Session.GetString("salaEscape"));
-
         View viewActual = salaEscape.obtenerViewActualObjeto();
         ViewBag.urlJuego = viewActual.urlJuego;
         ViewBag.boton = viewActual.BotonTexto;
         HttpContext.Session.SetString("salaEscape", Objetos.ObjectToString(salaEscape));
         return View("JuegoGenially");
+    }
+    public IActionResult Mapas(){
+        Juego salaEscape = Objetos.StringToObject<Juego>(HttpContext.Session.GetString("salaEscape"));
+        View viewActual = salaEscape.obtenerViewActualObjeto();
+        ViewBag.mapas = viewActual.mapas;
+        ViewBag.boton = viewActual.boton;
+        ViewBag.p = viewActual.Texto;
+        ViewBag.h1 = viewActual.Titulo;
+        HttpContext.Session.SetString("salaEscape", Objetos.ObjectToString(salaEscape));
+        return View("JuegoMapas");
     }
     
     public IActionResult IngresoClave(){

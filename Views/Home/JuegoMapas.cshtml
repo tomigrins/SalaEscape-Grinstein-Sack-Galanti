@@ -1,0 +1,12 @@
+<h1>@ViewBag.h1</h1>
+
+@for(int i = 0; i < @ViewBag.mapas.Count; i++){
+    <div>
+        <h1>Opción @i+1</h1>
+        <img src="@ViewBag.mapas[@i]">
+    </div>
+}
+<p>@ViewBag.p</p>
+<a href="@Url.Action("Continuar", "Home")">
+    <button>@ViewBag.boton</button>
+</a>
