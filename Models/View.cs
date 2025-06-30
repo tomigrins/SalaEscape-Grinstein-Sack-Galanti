@@ -11,13 +11,13 @@ public class View
     public string? claseMensaje {get; set;}
     public string? urlJuego {get; set;}
     public string? tipoJuego {get;set;}
-    public List<string>? mapas {get; set;}
+    public List<string>? listaParaJuego {get; set;}
     public int? inicioVideo { get; set; }
 
     public View(string tipo, string? videoId = null, int? segundoDeCorte = null,
     string? texto = null, string? botonTexto = null, string? proximaAccion = null,
     string? titulo = null, string? claseMensaje = null,
-    string? urlJuego = null, string? tipoJuego = null, List<string>? mapas = null,
+    string? urlJuego = null, string? tipoJuego = null, List<string>? listaParaJuego = null,
     int? incioVideo = null)
     {
         Tipo = tipo;
@@ -30,7 +30,7 @@ public class View
         this.claseMensaje = claseMensaje;
         this.urlJuego = urlJuego;
         this.tipoJuego = tipoJuego;
-        this.mapas = mapas;
+        this.listaParaJuego = listaParaJuego;
         this.inicioVideo = inicioVideo;
     }
 }

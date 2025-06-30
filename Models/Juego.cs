@@ -196,7 +196,7 @@ public class Juego
                     "1"
                     )
                 },
-                {3, new Escena(
+                {2, new Escena(
                     2,
                     "Playa",
                     new List<View>() {
@@ -245,9 +245,79 @@ public class Juego
                             "Video",
                             "Un chapuzón necesario",
                             "Playa"
+                        ),
+                        new View(
+                            "Video",
+                            "pqr7N8Euw0w",
+                            1,
+                            null,
+                            null,
+                            "Mensaje",
+                            null,
+                            null,
+                            null,
+                            null,
+                            null,
+                            0
+                        ),
+                        new View(
+                            "Mensaje",
+                            null,
+                            null,
+                            @"Bajo el agua todo se ve distinto…
+                            Pero entre las burbujas reconocés algo: una escena conocida, animada, azul.
+                            Un pez chiquito, otro olvidadizo, y una misión imposible: encontrar a alguien perdido.
+                            Te dejás llevar, porque ya no nadás: flotás dentro de una película.
+                            Solo hay una forma de seguir... responder bien.
+                            Preparate. Esto no es un juego de memoria… ¿o sí?",
+                            "Jugar bajo el agua",
+                            "Juego",
+                            "Algo nada distinto",
+                            "Agua"
+                        ),
+                        new View(
+                            "Juego",
+                            "rTRj0SvPNUk",
+                            1,
+                            "La oscuridad del océano se disuelve por un instante. Una luz suave parpadea entre las algas, y los peces se acercan curiosos. Estás viendo lo mismo que ellos… pero, ¿qué es lo que están mirando realmente?",
+                            "Continuar",
+                            "IngresoClave",
+                            null,
+                            null,
+                            null,
+                            "BuscandoANemo",
+                            new List<string>{
+                                "A) Los peces ven una linterna que se le había caido a un turista",
+                                "B) Los peces ven una luz que venía de un pez linterna",
+                                "C) Los peces descubren una ciudad submarina iluminada",
+                                "D) Los peces se acercan a una burbuja que brilla desde dentro"
+                            },
+                            null
+
+                        ),
+                        new View(
+                            "IngresoClave",
+                            null,
+                            null,
+                            "¿No te acordás la letra?",
+                            "Validar letra",
+                            "Mensaje",
+                            "Ingresá la letra de la opción:",
+                            "Ingreso"
+                        ),
+                        new View(
+                            "Mensaje",
+                            null,
+                            null,
+                            "¡Enhorabuena! Presiona el botón para conocer tu próximo destino",
+                            "Continuar",
+                            "Mensaje",
+                            "¡Pasaste!",
+                            "Pasaste",
+                            null
                         )
                     },
-                    "1234")
+                    "B")
                 }
 
         };
@@ -290,7 +360,7 @@ public class Juego
         {
             if (Escenas.ContainsKey(jugador.SalaActual + 1))
             {
-                pasarDeSala(); // ya reinicia numViewActual a 0
+                pasarDeSala(); 
                 escenaActual = obtenerEscenaActual();
             }
             else
@@ -331,11 +401,5 @@ public class Juego
         jugador.pasarDeSala(proxima.Id);
         jugador.numViewActual = 0;
         return proxima.Views[0];
-    }
-
-
-    public int obtenerViewParaError()
-    {
-        return jugador.SalaActual;
     }
 }
