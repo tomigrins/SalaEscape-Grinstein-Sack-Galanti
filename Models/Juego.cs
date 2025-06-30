@@ -59,7 +59,7 @@ public class Juego
                             "Jugar",
                             "Juego",
                             "Estás en el inodoro.",
-                            "Baño"
+                            "Inodoro"
                         ),
                         new View(
                             "Juego",
@@ -119,7 +119,7 @@ public class Juego
                             "Continuar",
                             "Video",
                             "El inodoro estaba embrujado",
-                            "Baño"
+                            "Inodoro"
                         ),
                         new View(
                             "Video",

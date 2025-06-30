@@ -1,17 +1,19 @@
-<h1>@ViewBag.h1</h1>
+<main class="juegoMapas">
+    <h1>@ViewBag.h1</h1>
 
-<section class="mapas">
-    @for(int i = 0; i < ViewBag.mapas.Count; i++){
-        <div>
-            @{
-                int i2 = i+1;
-            }
-            <h1>Opción @i2</h1>
-            <img src="@ViewBag.mapas[@i]">
-        </div>
-    }
-</section>
-<p>@ViewBag.p</p>
-<a href="@Url.Action("Continuar", "Home")">
-    <button>@ViewBag.boton</button>
-</a>
+    <section>
+        @for(int i = 0; i < ViewBag.mapas.Count; i++){
+            <div>
+                @{
+                    int i2 = i+1;
+                }
+                <h1>Opción @i2</h1>
+                <img src="@ViewBag.mapas[@i]">
+            </div>
+        }
+    </section>
+    <p>@ViewBag.p</p>
+    <a href="@Url.Action("Continuar", "Home")">
+        <button>@ViewBag.boton</button>
+    </a>
+<main>

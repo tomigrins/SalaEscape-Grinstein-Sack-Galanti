@@ -51,7 +51,7 @@ html, body {
     color: black;  margin-bottom: 2rem;
   }
 
-.Mensaje div button{
+button{
   padding: 0.5rem 2rem;
   font-size: 1rem;
   text-transform: uppercase;
@@ -64,7 +64,7 @@ html, body {
  
 }
 
-.Mensaje div button:hover {color: #13139bc4;
+button:hover {color: #13139bc4;
   background-color: #13139b63;
   border: 1px solid #13139b;
   color: white;
@@ -81,11 +81,24 @@ html, body {
   background-image: url('/Imagenes/Perdiste.png');
   
 }
+.Ingreso{
+  background-image: url("/imagenes/Momento clave.PNG");
+}
+
 
 
 .Pasaste
 {
-  background-image: url('/Imagenes/Pasaste.gif');
+  background-image: url('/Imagenes/Pasaste.png');
+}
+.Inodoro{
+  background-image: url('/Imagenes/Inodoro.png');
+}
+.Inodoro h1, .Inodoro h2{
+  color:white;
+}
+.MontañaRusa{
+  background-image: url('/Imagenes/MontañaRusa.png');
 }
 
 footer {
@@ -140,16 +153,26 @@ img.oculta {
 img.visible {
   visibility: visible;
 }
-.mapas div{
+.juegoMapas section div{
   width: 25%;
   margin-right: 4%;
   float:left;
 }
-.mapas div img{
+.juegoMapas section div img{
   width: 50%;
 }
 
-.mapas{
+.juegoMapas section{
   display: inline-block;
   width: 100%;
+}
+.juegoMapas h1{
+  text-align: center;
+}
+.juegoMapas section div{
+  border: 2px solid gray;
+}
+
+.nemo{
+  margin-left: 25%;
 }
