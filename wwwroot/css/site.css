@@ -43,12 +43,12 @@ html, body {
   font-size: 2.5rem;
   font-weight: bold;
   text-transform: uppercase;
-  color: white;
+  color: black;
   margin-bottom: 1rem;
   }
   
   .Mensaje div h2{
-    color: white;  margin-bottom: 2rem;
+    color: black;  margin-bottom: 2rem;
   }
 
 .Mensaje div button{
@@ -139,4 +139,17 @@ img.oculta {
 }
 img.visible {
   visibility: visible;
+}
+.mapas div{
+  width: 25%;
+  margin-right: 4%;
+  float:left;
+}
+.mapas div img{
+  width: 50%;
+}
+
+.mapas{
+  display: inline-block;
+  width: 100%;
 }

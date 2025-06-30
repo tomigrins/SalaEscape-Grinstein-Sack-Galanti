@@ -19,7 +19,13 @@ public class Juego
                             1,
                             null,
                             null,
-                            "Mensaje"
+                            "Mensaje",
+                            null,
+                            null,
+                            null,
+                            null,
+                            null,
+                            0
                         ),
                         new View(
                             "Mensaje",
@@ -37,7 +43,13 @@ public class Juego
                             1,
                             null,
                             null,
-                            "Mensaje"
+                            "Mensaje",
+                            null,
+                            null,
+                            null,
+                            null,
+                            null,
+                            0
                         ),
                         new View(
                             "Mensaje",
@@ -83,7 +95,7 @@ public class Juego
                             "Pasaste",
                             null
                         )
-                        
+
                     },
                     "INODOROEMBRUJADO"
                 )
@@ -115,7 +127,13 @@ public class Juego
                             1,
                             null,
                             null,
-                            "Mensaje"
+                            "Mensaje",
+                            null,
+                            null,
+                            null,
+                            null,
+                            null,
+                            0
                         ),
                         new View(
                             "Mensaje",
@@ -136,7 +154,10 @@ public class Juego
                             "Juego",
                             null,
                             null,
-                            "Respirá hondo y tomate un tiempo para decidir tu destino. Respirá hondo... Una decisión incorrecta podría costarte la vida.",
+                            @"El vértigo se disipa. El cielo sigue moviéndose, pero vos ya no.
+                            Algo húmedo queda en tu piel. Sal, viento… ¿o sudor?
+                            Escuchás olas, o quizás fue solo un susurro.
+                            Elegí bien. El próximo paso puede llevarte a la calma… o a perderte para siempre.",
                             "Continuar",
                             "IngresoClave",
                             "Elige tu destino",
@@ -146,13 +167,89 @@ public class Juego
                             new List<string>(){
                                 "/imagenes/mapas/playa.jpg",
                                 "/imagenes/mapas/montaña.jpg",
-                                "/imagenes/mapas/ciudad.avif"
+                                "/imagenes/mapas/ciudad.jpeg"
                             }
+                        ),
+                        new View(
+                            "IngresoClave",
+                            null,
+                            null,
+                            "¿No te acordás el número?",
+                            "Validar número",
+                            "Mensaje",
+                            "Ingresá el valor:",
+                            "Ingreso"
+                        ),
+                        new View(
+                            "Mensaje",
+                            null,
+                            null,
+                            "¡Enhorabuena! Presiona el botón para conocer tu próximo destino",
+                            "Continuar",
+                            "Mensaje",
+                            "¡Pasaste!",
+                            "Pasaste",
+                            null
+                        )
+                    
+                    },
+                    "1"
+                    )
+                },
+                {3, new Escena(
+                    2,
+                    "Playa",
+                    new List<View>() {
+                        new View(
+                            "Mensaje",
+                            null,
+                            null,
+                            @"La montaña rusa se desvía, como si tuviera voluntad propia.
+                            En lugar de frenar… vuela.
+                            Cerrás los ojos, y al abrirlos, sentís la arena bajo tus pies.
+                            Estás en una playa.
+                            No sabés cómo llegaste, pero el sol te da en la cara y el viento huele a sal y a algo más.
+                            Algo que no es del todo normal.
+                            ¿Fue una imaginación? ¿Una transición mágica?
+                            Quizás el océano tenga la respuesta.",
+                            "Explorar la playa",
+                            "Video",
+                            "Un aterrizaje inesperado",
+                            "playa"
+                        ),
+                        new View(
+                            "Video",
+                            "jqq_ZdD5Zwg",
+                            1,
+                            null,
+                            null,
+                            "Mensaje",
+                            null,
+                            null,
+                            null,
+                            null,
+                            null,
+                            10
+                        ),
+                        new View(
+                            "Mensaje",
+                            null,
+                            null,
+                            @"La brisa cálida, el sonido de las olas y el murmullo del agua te envuelven.
+                            No sabés bien cómo llegaste hasta acá, pero tampoco importa.
+                            Hay algo liberador en no tener un plan.
+                            Te sacás los zapatos, pisás la espuma y te metés al agua.
+                            Sentís que todo se disuelve: el tiempo, el ruido, incluso las preguntas.
+                            Solo quedás vos y el mar",
+                            "Sumergirse",
+                            "Video",
+                            "Un chapuzón necesario",
+                            "Playa"
                         )
                     },
-                    "1234"
-                )
-            }
+                    "1234")
+                }
+
         };
 
         jugador = new Jugador();

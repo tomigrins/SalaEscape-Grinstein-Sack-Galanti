@@ -23,7 +23,6 @@ public class HomeController : Controller
     }
     public IActionResult ValidarCodigo(string codigo)
     {
-        
         Juego salaEscape = Objetos.StringToObject<Juego>(HttpContext.Session.GetString("salaEscape"));
         bool igual = salaEscape.obtenerEscenaActual().IgualarCodigo(codigo);
         if(igual)
@@ -61,6 +60,7 @@ public class HomeController : Controller
         ViewBag.video = viewActual.VideoId;
         ViewBag.segundoDeCorte = viewActual.SegundoDeCorte;
         ViewBag.proximaView = salaEscape.obtenerProximaViewEnEscena();
+        ViewBag.inicioVideo = viewActual.inicioVideo;
 
         salaEscape.avanzarView();
         HttpContext.Session.SetString("salaEscape", Objetos.ObjectToString(salaEscape));
@@ -78,7 +78,6 @@ public class HomeController : Controller
     {
         Juego salaEscape = Objetos.StringToObject<Juego>(HttpContext.Session.GetString("salaEscape"));
         View viewActual = salaEscape.obtenerViewActualObjeto();
-
         ViewBag.h1 = viewActual.Titulo;
         ViewBag.h2 = viewActual.Texto;
         ViewBag.boton = viewActual.BotonTexto;
@@ -128,7 +127,7 @@ public class HomeController : Controller
         Juego salaEscape = Objetos.StringToObject<Juego>(HttpContext.Session.GetString("salaEscape"));
         View viewActual = salaEscape.obtenerViewActualObjeto();
         ViewBag.mapas = viewActual.mapas;
-        ViewBag.boton = viewActual.boton;
+        ViewBag.boton = viewActual.BotonTexto;
         ViewBag.p = viewActual.Texto;
         ViewBag.h1 = viewActual.Titulo;
         HttpContext.Session.SetString("salaEscape", Objetos.ObjectToString(salaEscape));
