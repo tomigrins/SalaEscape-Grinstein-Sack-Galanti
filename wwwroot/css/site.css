@@ -51,6 +51,8 @@ html, body {
     color: black;  margin-bottom: 2rem;
   }
 
+
+
 button{
   padding: 0.5rem 2rem;
   font-size: 1rem;
@@ -85,7 +87,9 @@ button:hover {color: #13139bc4;
   background-image: url("/imagenes/Momento clave.PNG");
 }
 
-
+.ParacaídasCódigo{
+  background-image: url("/imagenes/paracaídasCodigo.PNG");
+}
 
 .Pasaste
 {

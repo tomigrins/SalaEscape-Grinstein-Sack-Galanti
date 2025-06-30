@@ -377,34 +377,45 @@ public class Juego
                                 null
                             ),
                             new View(
-                                "Juego",
+                                "Mensaje",
                                 null,
                                 null,
-                                @"instrucciones!"
+                                @"Mientras caés, el viento te golpea con fuerza… pero hay algo que no cuadra.
+                                Una imagen se repite en tu mente, como si alguien —o algo— intentara decirte algo.
+                                Fijate bien. No todo está a simple vista.
+                                Hay un código esperándote… si sabés dónde buscar.",
+                                "Ingresar el código",
+                                "IngresoClave",
+                                "¿Algo se te escapa?",
+                                "ParacaídasCódigo",
+                                null,
+                                null,
+                                null,
+                                null
                             ),
                             new View(
-                            "IngresoClave",
-                            null,
-                            null,
-                            "¿No te acordás la letra?",
-                            "Validar letra",
-                            "Mensaje",
-                            "Ingresá la letra de la opción:",
-                            "Ingreso"
+                                "IngresoClave",
+                                null,
+                                null,
+                                "¿No te acordás la letra?",
+                                "Validar letra",
+                                "Mensaje",
+                                "Ingresá la letra de la opción:",
+                                "Ingreso"
                             ),
                             new View(
-                            "Mensaje",
-                            null,
-                            null,
-                            "¡Enhorabuena! Presiona el botón para conocer tu próximo destino",
-                            "Continuar",
-                            "Mensaje",
-                            "¡Pasaste!",
-                            "Pasaste",
-                            null
+                                "Mensaje",
+                                null,
+                                null,
+                                "¡Enhorabuena! Presiona el botón para conocer tu próximo destino",
+                                "Continuar",
+                                "Mensaje",
+                                "¡Pasaste!",
+                                "Pasaste",
+                                null
                             )
                         },
-                        "1234"
+                        "PORTALENELCIELO"
                     )
                 }, 
                 {
