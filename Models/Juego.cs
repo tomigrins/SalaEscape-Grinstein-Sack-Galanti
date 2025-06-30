@@ -191,7 +191,7 @@ public class Juego
                             "Pasaste",
                             null
                         )
-                    
+
                     },
                     "1"
                     )
@@ -318,6 +318,73 @@ public class Juego
                         )
                     },
                     "B")
+                },
+                {
+                    3,
+                    new Escena(
+                        3,
+                        "Paracaidas",
+                        new List<View> {
+                            new View(
+                                "Mensaje",
+                                null,
+                                null,
+                                @"El agua tibia se vuelve cada vez más liviana. Flotás… luego ascendés. No nadás, pero algo te eleva.
+                                Sentís el viento. No sabés cuándo dejaste el mar.
+                                La sal sigue en tu piel, pero ahora hay otra cosa: aire. Mucho aire.
+                                Tus pies ya no tocan nada. Mirás abajo… y el mundo es una miniatura.",
+                                "Seguir flotando",
+                                "Video",
+                                "Algo te eleva",
+                                "Playa",
+                                null,
+                                null,
+                                null,
+                                null
+                            ),
+                            new View(
+                                "Video",
+                                "eAS2tg-zN_4",
+                                1,
+                                null,
+                                null,
+                                "Mensaje",
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                3
+                            ),
+                            new View(
+                                "Mensaje",
+                                null,
+                                null,
+                                @"El suelo no se acerca.
+                                Las nubes giran lento, como si el tiempo también flotara.
+                                Estás colgando de un paracaídas, sí… pero esto no es solo una caída.
+                                Hay algo raro en el aire. Un destello frente a tus ojos.
+                                Un juego.
+                                ¿Lo imaginás? ¿O lo ves de verdad?
+                                Quizás la única forma de avanzar… sea jugar.",
+                                "Jugar",
+                                "Juego",
+                                "El paracaídas se pausa",
+                                "Paracaídas",
+                                null,
+                                null,
+                                null,
+                                null
+                            ),
+                            new View(
+                                "Juego",
+                                null,
+                                null,
+                                @"instrucciones!"
+                            )
+                        },
+                        "1234"
+                    )
                 }
 
         };
