@@ -10,6 +10,9 @@ html, body {
     font-size: 16px;
   }
 }
+main{
+  background-color: black;
+}
 
 .Mensaje
 {
