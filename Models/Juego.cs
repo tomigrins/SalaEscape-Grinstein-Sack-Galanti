@@ -381,6 +381,41 @@ public class Juego
                                 null,
                                 null,
                                 @"instrucciones!"
+                            ),
+                            new View(
+                            "IngresoClave",
+                            null,
+                            null,
+                            "¿No te acordás la letra?",
+                            "Validar letra",
+                            "Mensaje",
+                            "Ingresá la letra de la opción:",
+                            "Ingreso"
+                            ),
+                            new View(
+                            "Mensaje",
+                            null,
+                            null,
+                            "¡Enhorabuena! Presiona el botón para conocer tu próximo destino",
+                            "Continuar",
+                            "Mensaje",
+                            "¡Pasaste!",
+                            "Pasaste",
+                            null
+                            )
+                        },
+                        "1234"
+                    )
+                }, 
+                {
+                    4, new Escena(
+                        4,
+                        "Portal",
+                        new List<View>{
+                            new View(
+                                "Mensaje",
+                                null,
+                                null
                             )
                         },
                         "1234"
