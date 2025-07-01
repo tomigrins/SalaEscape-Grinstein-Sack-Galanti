@@ -31,6 +31,6 @@ public class View
         this.urlJuego = urlJuego;
         this.tipoJuego = tipoJuego;
         this.listaParaJuego = listaParaJuego;
-        this.inicioVideo = inicioVideo;
+        inicioVideo = incioVideo;
     }
 }

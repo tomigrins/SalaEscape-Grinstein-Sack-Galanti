@@ -37,7 +37,7 @@ public class Juego
                         new View(
                             "Video",
                             "ardtvdR28SQ",
-                            30,
+                            20,
                             null,
                             null,
                             "Mensaje",
@@ -270,7 +270,7 @@ public class Juego
                         new View(
                             "Video",
                             "pqr7N8Euw0w",
-                            1,
+                            6,
                             null,
                             null,
                             "Mensaje",
@@ -279,7 +279,7 @@ public class Juego
                             null,
                             null,
                             null,
-                            0
+                            1
                         ),
                         new View(
                             "Mensaje",
@@ -299,7 +299,7 @@ public class Juego
                         new View(
                             "Juego",
                             "rTRj0SvPNUk",
-                            1,
+                            null,
                             "La oscuridad del océano se disuelve por un instante. Una luz suave parpadea entre las algas, y los peces se acercan curiosos. Estás viendo lo mismo que ellos… pero, ¿qué es lo que están mirando realmente?",
                             "Continuar",
                             "IngresoClave",
@@ -366,7 +366,7 @@ public class Juego
                             new View(
                                 "Video",
                                 "eAS2tg-zN_4",
-                                1,
+                                35,
                                 null,
                                 null,
                                 "Mensaje",
@@ -375,7 +375,7 @@ public class Juego
                                 null,
                                 null,
                                 null,
-                                3
+                                20
                             ),
                             new View(
                                 "Mensaje",

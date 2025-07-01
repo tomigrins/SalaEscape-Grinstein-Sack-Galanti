@@ -34,7 +34,7 @@ main{
   font-family: Arial;
 }
 .Mensaje div{
-  background: rgba(255, 255, 255, 0.13); /* Fondo semi-transparente */
+  background: rgba(0, 0, 0, 0.37); /* Fondo semi-transparente */
   border-radius: 16px;
   padding: 2rem;
   text-align: center;
@@ -42,19 +42,19 @@ main{
   -webkit-backdrop-filter: blur(5px);
   max-width: 600px;
   width: 90%;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.295);
 }
 
 .Mensaje div h1{
   font-size: 2.5rem;
   font-weight: bold;
   text-transform: uppercase;
-  color: black;
+  color: rgb(255, 255, 255);
   margin-bottom: 1rem;
   }
   
   .Mensaje div h2{
-    color: black;  margin-bottom: 2rem;
+    color: rgb(170, 170, 170);  margin-bottom: 2rem;
   }
 
 
@@ -70,8 +70,7 @@ button{
   cursor: pointer;
   border: 1px solid #13139b;
   align-items:center;
-  margin-top: 1%;
- 
+  margin-top: 1%; 
 }
 
 button:hover {color: #13139bc4;
@@ -86,6 +85,9 @@ button:hover {color: #13139bc4;
 }
 .Mensaje button:hover{
   margin-left: 0;
+}
+.Inicio{
+  background-image: url('/Imagenes/Inicio.png');
 }
 
 .playa{
@@ -197,4 +199,8 @@ header{
   float: left;
   margin-left: 2%;
   margin-right: 2%;
+}
+
+form{
+  color: antiquewhite;
 }

@@ -27,7 +27,7 @@ public class HomeController : Controller
         Juego salaEscape = Objetos.StringToObject<Juego>(HttpContext.Session.GetString("salaEscape"));
         if (salaEscape.jugador.SalaActual != 4)
         {
-            bool igual = salaEscape.obtenerEscenaActual().IgualarCodigo(codigo);
+            bool igual = salaEscape.obtenerEscenaActual().IgualarCodigo(codigo.ToUpper());
             if (igual)
             {
                 HttpContext.Session.SetString("salaEscape", Objetos.ObjectToString(salaEscape));
@@ -101,12 +101,12 @@ public class HomeController : Controller
 
         ViewBag.video = viewActual.VideoId;
         ViewBag.segundoDeCorte = viewActual.SegundoDeCorte;
-        ViewBag.proximaView = salaEscape.obtenerProximaViewEnEscena();
         ViewBag.inicioVideo = viewActual.inicioVideo;
+        ViewBag.proximaView = salaEscape.obtenerProximaViewEnEscena();
+        
 
         salaEscape.avanzarView();
         HttpContext.Session.SetString("salaEscape", Objetos.ObjectToString(salaEscape));
-
         return View();
     }
     public IActionResult VolverALaViewAnterior()
