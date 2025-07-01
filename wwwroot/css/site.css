@@ -186,3 +186,14 @@ header{
   padding:2%;
   text-align: center;
 }
+.Creditos{
+  color:white;
+  padding: 2%;
+}
+.Creditos div{
+  width: 28%;
+  border: 2px solid gray;
+  float: left;
+  margin-left: 2%;
+  margin-right: 2%;
+}

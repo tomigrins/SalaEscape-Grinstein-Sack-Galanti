@@ -4,7 +4,7 @@ public class Jugador
     public int numViewActual { get; set; }
     public Jugador()
     {
-        SalaActual = 0;
+        SalaActual = -1;
         numViewActual = 0;
     }
     public void pasarDeSala(int idNuevo)

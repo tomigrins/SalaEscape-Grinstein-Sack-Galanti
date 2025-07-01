@@ -18,8 +18,9 @@ public class HomeController : Controller
     {
         Juego salaEscape = new Juego();
         salaEscape.inicializarJuego();
+        salaEscape.jugador.numViewActual = -1;
         HttpContext.Session.SetString("salaEscape", Objetos.ObjectToString(salaEscape));
-        return RedirectToAction("Video");
+        return RedirectToAction("Continuar");
     }
     public IActionResult ValidarCodigo(string codigo)
     {
@@ -108,7 +109,8 @@ public class HomeController : Controller
 
         return View();
     }
-    public IActionResult VolverALaViewAnterior(){
+    public IActionResult VolverALaViewAnterior()
+    {
         Juego salaEscape = Objetos.StringToObject<Juego>(HttpContext.Session.GetString("salaEscape"));
         salaEscape.jugador.numViewActual = salaEscape.jugador.numViewActual - 2;
         HttpContext.Session.SetString("salaEscape", Objetos.ObjectToString(salaEscape));
@@ -145,8 +147,13 @@ public class HomeController : Controller
                 return RedirectToAction("Juego");
             case "IngresoClave":
                 return RedirectToAction("IngresoClave");
-            case "Final":
-                return View("Final");
+            case "Inicio":
+                View viewActual = salaEscape.obtenerViewActualObjeto();
+                ViewBag.h1 = viewActual.Titulo;
+                ViewBag.h2 = viewActual.Texto;
+                ViewBag.boton = viewActual.BotonTexto;
+                ViewBag.claseMensaje = viewActual.claseMensaje;
+                return View("Inicio");
             default:
                 ViewBag.debug = "No se encontró el tipo de la view";
                 return View("Index");
@@ -158,7 +165,8 @@ public class HomeController : Controller
         View viewActual = salaEscape.obtenerViewActualObjeto();
         return RedirectToAction(viewActual.tipoJuego);
     }
-    public IActionResult Genially(){
+    public IActionResult Genially()
+    {
         Juego salaEscape = Objetos.StringToObject<Juego>(HttpContext.Session.GetString("salaEscape"));
         View viewActual = salaEscape.obtenerViewActualObjeto();
         ViewBag.urlJuego = viewActual.urlJuego;
@@ -166,7 +174,8 @@ public class HomeController : Controller
         HttpContext.Session.SetString("salaEscape", Objetos.ObjectToString(salaEscape));
         return View("JuegoGenially");
     }
-    public IActionResult Mapas(){
+    public IActionResult Mapas()
+    {
         Juego salaEscape = Objetos.StringToObject<Juego>(HttpContext.Session.GetString("salaEscape"));
         View viewActual = salaEscape.obtenerViewActualObjeto();
         ViewBag.mapas = viewActual.listaParaJuego;
@@ -187,7 +196,7 @@ public class HomeController : Controller
         HttpContext.Session.SetString("salaEscape", Objetos.ObjectToString(salaEscape));
         return View("JuegoNemo");
     }
-    
+
     public IActionResult IngresoClave()
     {
         Juego salaEscape = Objetos.StringToObject<Juego>(HttpContext.Session.GetString("salaEscape"));
@@ -196,6 +205,10 @@ public class HomeController : Controller
         ViewBag.h2 = viewActual.Texto;
         ViewBag.boton = viewActual.BotonTexto;
         ViewBag.ClaseMensaje = viewActual.claseMensaje;
+        return View();
+    }
+    public IActionResult Creditos()
+    {
         return View();
     }
 }

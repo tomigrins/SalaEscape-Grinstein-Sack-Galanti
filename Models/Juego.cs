@@ -7,6 +7,27 @@ public class Juego
     public void inicializarJuego()
     {
         Escenas = new Dictionary<int, Escena> {
+            {-1, new Escena(
+                0, "Inicio",
+                new List<View>{
+                    new View(
+                        "Inicio",
+                        null,
+                        null,
+                        @"No estás en una sala común.
+                        Esta sala cambia, vibra, se transforma.
+                        Vas a atravesar escenas inesperadas, resolver desafíos, encontrar pistas y decidir tu destino.
+                        Vas a ver cosas que no tienen sentido… al principio.
+                        Todo empieza en un casamiento.
+                        Pero te aviso: no va a terminar ahí.",
+                        "Empezar la experiencia",
+                        "Video",
+                        "Bienvenido a la sala de escape",
+                        "Inicio"
+                    )
+                },
+                ""
+            ) },
             {
                 0,
                 new Escena(
