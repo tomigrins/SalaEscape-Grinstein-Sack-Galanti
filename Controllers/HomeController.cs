@@ -154,6 +154,8 @@ public class HomeController : Controller
                 ViewBag.boton = viewActual.BotonTexto;
                 ViewBag.claseMensaje = viewActual.claseMensaje;
                 return View("Inicio");
+            case "Creditos":
+                return View("Creditos");
             default:
                 ViewBag.debug = "No se encontró el tipo de la view";
                 return View("Index");
@@ -210,5 +212,8 @@ public class HomeController : Controller
     public IActionResult Creditos()
     {
         return View();
+    }
+    public IActionResult VolverAJugar(){
+        return RedirectToAction("Inicio");
     }
 }

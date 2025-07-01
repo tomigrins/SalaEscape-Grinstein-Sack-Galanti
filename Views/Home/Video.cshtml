@@ -9,6 +9,7 @@
         <script>
             const videoId = "@ViewBag.video"
             const nextView = "@Url.Action((string)ViewBag.proximaView, "Home")"
+            const segundoDeCorte = "@ViewBag.segundoDeCorte"
 
             let player
             let checkTimeInterval
@@ -21,13 +22,14 @@
                         controls: 0,
                         modestbranding: 1,
                         rel: 0,
+                        start: 10
                     },
                     events: {
                         'onReady': function (e) {
                             e.target.playVideo()
                             checkTimeInterval = setInterval(() => {
                                 const currentTime = player.getCurrentTime();
-                                if (currentTime >= 5) { 
+                                if (currentTime >= @ViewBag.segundoDeCorte) { 
                                     clearInterval(checkTimeInterval);
                                     window.location.href = "@Url.Action("Mensaje", "Home")";
                                 }

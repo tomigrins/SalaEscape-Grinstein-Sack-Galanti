@@ -37,7 +37,7 @@ public class Juego
                         new View(
                             "Video",
                             "ardtvdR28SQ",
-                            1,
+                            30,
                             null,
                             null,
                             "Mensaje",
@@ -198,7 +198,7 @@ public class Juego
                             "¿No te acordás el número?",
                             "Validar número",
                             "Mensaje",
-                            "Ingresá el valor:",
+                            "Ingresá el número de puerta:",
                             "Ingreso"
                         ),
                         new View(
@@ -483,7 +483,8 @@ public class Juego
                             "Fin",
                             "RIP: Demasiadas emociones",
                             "Tumba"
-                            )
+                            ),
+                            new View("Creditos")
                     },
                     ""
                 )},
@@ -506,7 +507,8 @@ public class Juego
                             "Fin",
                             "Sólo un sueño",
                             "Cama"
-                        )
+                        ),
+                        new View("Creditos")
                     },
                         ""
 

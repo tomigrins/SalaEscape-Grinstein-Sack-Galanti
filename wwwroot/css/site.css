@@ -1,7 +1,7 @@
 html, body {
   margin: 0;
   padding: 0;
-  height: 100%; /* necesario para 100vh */
+  min-height: 100%; /* necesario para 100vh */
   font-family: Arial;
   text-align: center;
 }
@@ -70,6 +70,7 @@ button{
   cursor: pointer;
   border: 1px solid #13139b;
   align-items:center;
+  margin-top: 1%;
  
 }
 
