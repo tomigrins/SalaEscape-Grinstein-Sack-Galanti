@@ -200,6 +200,9 @@ header{
   margin-left: 2%;
   margin-right: 2%;
 }
+.Creditos div img{
+  width: 80%;
+}
 
 form{
   color: antiquewhite;
