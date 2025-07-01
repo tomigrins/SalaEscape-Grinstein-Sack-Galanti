@@ -142,7 +142,7 @@ public class Juego
                             @"La montaña rusa trepa. El aire se vuelve más fino, más frío.
                             Abajo, todo es miniatura. Excepto el miedo.
                             Frente a vos, aparecen tres mapas. No sabés cómo llegaron a tus manos.
-                            Solo uno traza un camino hacia una playa segura.
+                            Solo uno traza un camino hacia un lugar segura.
                             Los otros… bueno, no hay tiempo.
                             Tenés que elegir antes de caer.",
                             "Continuar",
@@ -160,7 +160,7 @@ public class Juego
                             Elegí bien. El próximo paso puede llevarte a la calma… o a perderte para siempre.",
                             "Continuar",
                             "IngresoClave",
-                            "Elige tu destino",
+                            "Elegi tu destino",
                             null,
                             null,
                             "Mapas",
@@ -244,7 +244,7 @@ public class Juego
                             "Sumergirse",
                             "Video",
                             "Un chapuzón necesario",
-                            "Playa"
+                            "playa"
                         ),
                         new View(
                             "Video",
@@ -273,7 +273,7 @@ public class Juego
                             "Jugar bajo el agua",
                             "Juego",
                             "Algo nada distinto",
-                            "Agua"
+                            "Oceano"
                         ),
                         new View(
                             "Juego",
@@ -336,7 +336,7 @@ public class Juego
                                 "Seguir flotando",
                                 "Video",
                                 "Algo te eleva",
-                                "Playa",
+                                "paracaidas",
                                 null,
                                 null,
                                 null,
@@ -355,26 +355,6 @@ public class Juego
                                 null,
                                 null,
                                 3
-                            ),
-                            new View(
-                                "Mensaje",
-                                null,
-                                null,
-                                @"El suelo no se acerca.
-                                Las nubes giran lento, como si el tiempo también flotara.
-                                Estás colgando de un paracaídas, sí… pero esto no es solo una caída.
-                                Hay algo raro en el aire. Un destello frente a tus ojos.
-                                Un juego.
-                                ¿Lo imaginás? ¿O lo ves de verdad?
-                                Quizás la única forma de avanzar… sea jugar.",
-                                "Jugar",
-                                "Juego",
-                                "El paracaídas se pausa",
-                                "Paracaídas",
-                                null,
-                                null,
-                                null,
-                                null
                             ),
                             new View(
                                 "Mensaje",
@@ -417,7 +397,7 @@ public class Juego
                         },
                         "PORTALENELCIELO"
                     )
-                }, 
+                },
                 {
                     4, new Escena(
                         4,
@@ -426,12 +406,46 @@ public class Juego
                             new View(
                                 "Mensaje",
                                 null,
-                                null
+                                null,
+                                @"Mientras descendés, una luz se filtra entre las nubes. No es el sol.
+                                Es circular, vibrante… y está suspendida en el aire, justo en tu camino.
+                                No sabés si evitarlo o atravesarlo, pero no parece darte opción.
+                                Estás cayendo. Y el portal... te espera.",
+                                "Atravesar el portal",
+                                "Mensaje",
+                                "Algo brilla entre las nubes",
+                                "Portal"
+                            ),
+                            new View(
+                                "Mensaje",
+                                null,
+                                null,
+                                @"Del otro lado del portal, flotás en un espacio sin tiempo.
+                                Frente a vos, aparecen tres puertas suspendidas en el aire.
+                                Puerta 1: volver a la playa, donde el mar guarda sus secretos.
+                                Puerta 2: conocer la montaña, donde el silencio tiene eco.
+                                Puerta 3: ir a tu cama a descansar, donde los sueños quizás sigan.
+                                No sabés cómo elegís, pero sabés que tenés que hacerlo.",
+                                "Elegir una puerta",
+                                "ingresoClave",
+                                "Tres caminos",
+                                "portalPuertas"
+                            ),
+                            new View(
+                                "IngresoClave",
+                                null,
+                                null,
+                                "¿No te acordás el número de puerta?",
+                                "Elegí tu camino",
+                                "Mensaje",
+                                "Ingresá el número de puerta:",
+                                "Ingreso"
                             )
                         },
-                        "1234"
+                        "3"
                     )
-                }
+                },
+                
 
         };
 

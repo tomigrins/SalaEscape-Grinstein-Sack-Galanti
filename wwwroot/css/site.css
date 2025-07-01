@@ -12,6 +12,8 @@ html, body {
 }
 main{
   background-color: black;
+  height: 100%;
+  min-height: 100vh;
 }
 
 .Mensaje
@@ -66,6 +68,7 @@ button{
   border: none;
   cursor: pointer;
   border: 1px solid #13139b;
+  align-items:center;
  
 }
 
@@ -73,27 +76,35 @@ button:hover {color: #13139bc4;
   background-color: #13139b63;
   border: 1px solid #13139b;
   color: white;
+  align-items:center;
+ 
+}
+.Mensaje button {
+  margin-left: 0;
+}
+.Mensaje button:hover{
+  margin-left: 0;
 }
 
-
-.Clave
-{
-  background-image: url('/Imagenes/Momento_clave.png');
+.playa{
+  background-image: url('/Imagenes/playa.png');
 }
-
 .Error
 {
   background-image: url('/Imagenes/Perdiste.png');
-  
+}
+.Oceano{
+  background-image:url('/imagenes/oceano.webp');
 }
 .Ingreso{
   background-image: url("/imagenes/Momento clave.PNG");
 }
-
 .ParacaídasCódigo{
-  background-image: url("/imagenes/paracaídasCodigo.PNG");
+  background-image: url('/imagenes/paracaídasCodigo.PNG');
 }
-
+.paracaidas{
+  background-image: url('/imagenes/paracaidas.jpg');
+}
 .Pasaste
 {
   background-image: url('/Imagenes/Pasaste.png');
@@ -106,6 +117,12 @@ button:hover {color: #13139bc4;
 }
 .MontañaRusa{
   background-image: url('/Imagenes/MontañaRusa.png');
+}
+.Portal{
+  background-image: url('/Imagenes/Portal.png');
+}
+.portalPuertas{
+  background-image: url('/imagenes/portalPuertas.jpg');
 }
 
 footer {
@@ -162,24 +179,38 @@ img.visible {
 }
 .juegoMapas section div{
   width: 25%;
-  margin-right: 4%;
+  margin-right: 3%;
+  margin-left:3%;
   float:left;
 }
 .juegoMapas section div img{
-  width: 50%;
+  width: 80%;
+  margin-left: 10%;
 }
 
 .juegoMapas section{
   display: inline-block;
   width: 100%;
+  color:white;
 }
 .juegoMapas h1{
   text-align: center;
+  color:white;
+  padding-top: 2%;
 }
 .juegoMapas section div{
   border: 2px solid gray;
+  padding:1%;
+}
+.juegoMapas p{
+  color:white;
+  text-align: center;
+  margin-left: 10%;
+  margin-right: 10%;
 }
 
-.nemo{
-  margin-left: 25%;
+.nemoEntero{
+  color:white;
+  padding:2%;
+  text-align: center;
 }
