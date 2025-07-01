@@ -3,6 +3,7 @@ html, body {
   padding: 0;
   height: 100%; /* necesario para 100vh */
   font-family: Arial;
+  text-align: center;
 }
 
 @media (min-width: 768px) {
@@ -150,48 +151,14 @@ header{
   background-image: url('/Imagenes/Baño.webp');
 }
 
-.grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
-    max-width: 600px;
-    margin: auto;
-}
-
-.carta {
-    width: 100px;
-    height: 100px;
-    background: gray;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-}
-
-.carta img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: none;
-}
-
-.carta img.visible {
-    display: block;
-}
-img.oculta {
-  visibility: hidden;
-}
-img.visible {
-  visibility: visible;
-}
 .juegoMapas section div{
   width: 25%;
-  margin-right: 3%;
-  margin-left:3%;
+  margin-right: 3.5%;
+  margin-left:3.5%;
   float:left;
 }
 .juegoMapas section div img{
   width: 80%;
-  margin-left: 10%;
 }
 
 .juegoMapas section{
@@ -206,7 +173,6 @@ img.visible {
 }
 .juegoMapas section div{
   border: 2px solid gray;
-  padding:1%;
 }
 .juegoMapas p{
   color:white;

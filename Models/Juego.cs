@@ -377,10 +377,10 @@ public class Juego
                                 "IngresoClave",
                                 null,
                                 null,
-                                "¿No te acordás la letra?",
-                                "Validar letra",
+                                "¿No te acordás el código?",
+                                "Validar código",
                                 "Mensaje",
-                                "Ingresá la letra de la opción:",
+                                "Ingresá el código del paracaídas:",
                                 "Ingreso"
                             ),
                             new View(
@@ -408,7 +408,7 @@ public class Juego
                                 null,
                                 null,
                                 @"Mientras descendés, una luz se filtra entre las nubes. No es el sol.
-                                Es circular, vibrante… y está suspendida en el aire, justo en tu camino.
+                                Es rectangular, vibrante… y está suspendida en el aire, justo en tu camino.
                                 No sabés si evitarlo o atravesarlo, pero no parece darte opción.
                                 Estás cayendo. Y el portal... te espera.",
                                 "Atravesar el portal",
@@ -487,7 +487,7 @@ public class Juego
                             "Cama"
                         )
                     },
-                        "1234"
+                        ""
 
                     )
                 }
@@ -504,7 +504,14 @@ public class Juego
         int proximaSala = jugador.SalaActual + 1;
         if (Escenas.ContainsKey(proximaSala))
             return Escenas[proximaSala];
-        return null;
+        else
+        {
+            proximaSala += 1;
+            if (Escenas.ContainsKey(proximaSala))
+                return Escenas[proximaSala];
+            else
+                return null;
+        }
     }
 
     public Escena obtenerEscenaActual()
@@ -537,7 +544,7 @@ public class Juego
             }
             else
             {
-                return new View("Mensaje", null, null, "¡Felicidades! Escapaste.", null, null, "Fin");
+                return new View("Final");
             }
         }
         return escenaActual.Views[jugador.numViewActual];
@@ -568,8 +575,9 @@ public class Juego
     {
         Escena? proxima = ObtenerEscena();
         if (proxima == null)
-            return null; 
-
+        {
+            return null;
+        }
         jugador.pasarDeSala(proxima.Id);
         jugador.numViewActual = 0;
         return proxima.Views[0];
