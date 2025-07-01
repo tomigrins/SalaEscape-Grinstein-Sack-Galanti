@@ -124,6 +124,12 @@ button:hover {color: #13139bc4;
 .portalPuertas{
   background-image: url('/imagenes/portalPuertas.jpg');
 }
+.Tumba{
+  background-image: url('/imagenes/Tumba.webp');
+}
+.Cama{
+  background-image: url('/imagenes/cama.jpg');
+}
 
 footer {
   display: none;

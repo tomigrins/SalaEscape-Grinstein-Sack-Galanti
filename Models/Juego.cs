@@ -142,7 +142,7 @@ public class Juego
                             @"La montaña rusa trepa. El aire se vuelve más fino, más frío.
                             Abajo, todo es miniatura. Excepto el miedo.
                             Frente a vos, aparecen tres mapas. No sabés cómo llegaron a tus manos.
-                            Solo uno traza un camino hacia un lugar segura.
+                            Solo uno traza un camino hacia un lugar seguro.
                             Los otros… bueno, no hay tiempo.
                             Tenés que elegir antes de caer.",
                             "Continuar",
@@ -445,7 +445,52 @@ public class Juego
                         "3"
                     )
                 },
-                
+                {5, new Escena(5,
+                    "Muerte",
+                    new List<View>{
+                        new View(
+                            "Mensaje",
+                            null,
+                            null,
+                            @"Elegiste seguir explorando…
+                            Pero tu cabeza no pudo más.
+                            Tantas imágenes, sonidos y decisiones colapsaron tu cerebro.
+                            Tus pensamientos explotaron en fuegos artificiales.
+                            Ahora descansás en paz.
+                            O no. No lo sabés. Porque ya no estás.",
+                            "Ver créditos",
+                            "Fin",
+                            "RIP: Demasiadas emociones",
+                            "Tumba"
+                            )
+                    },
+                    ""
+                )},
+                {
+                    6,
+                    new Escena(6,
+                    "Cama",
+                    new List<View>{
+                        new View(
+                            "Mensaje",
+                            null,
+                            null,
+                            @"Te despertás en tu cama.
+                            Las sábanas están enredadas, tu corazón late con fuerza.
+                            ¿El baño embrujado, la montaña rusa, el paracaídas… todo eso pasó?
+                            No lo sabés.
+                            Pero el reloj marca la hora de levantarse, y la vida real te espera.
+                            Aunque, por alguna razón, todavía tenés sal en los pies.",
+                            "Ver créditos",
+                            "Fin",
+                            "Sólo un sueño",
+                            "Cama"
+                        )
+                    },
+                        "1234"
+
+                    )
+                }
 
         };
 
