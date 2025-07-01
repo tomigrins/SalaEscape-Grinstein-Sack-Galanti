@@ -10,6 +10,7 @@
             const videoId = "@ViewBag.video"
             const nextView = "@Url.Action((string)ViewBag.proximaView, "Home")"
             const segundoDeCorte = "@ViewBag.segundoDeCorte"
+            const segundoDeInicio = "@ViewBag.inicioVideo"
 
             let player
             let checkTimeInterval
@@ -22,7 +23,7 @@
                         controls: 0,
                         modestbranding: 1,
                         rel: 0,
-                        start: 10
+                        start: segundoDeInicio
                     },
                     events: {
                         'onReady': function (e) {

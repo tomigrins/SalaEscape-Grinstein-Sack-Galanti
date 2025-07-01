@@ -46,7 +46,7 @@ public class Juego
                             null,
                             null,
                             null,
-                            0
+                            10
                         ),
                         new View(
                             "Mensaje",
@@ -61,7 +61,7 @@ public class Juego
                         new View(
                             "Video",
                             "wpHC614ZHMY",
-                            1,
+                            19,
                             null,
                             null,
                             "Mensaje",
@@ -145,7 +145,7 @@ public class Juego
                         new View(
                             "Video",
                             "aJqOav3Lfcc",
-                            1,
+                            27,
                             null,
                             null,
                             "Mensaje",
@@ -154,7 +154,7 @@ public class Juego
                             null,
                             null,
                             null,
-                            0
+                            22
                         ),
                         new View(
                             "Mensaje",
@@ -241,7 +241,7 @@ public class Juego
                         new View(
                             "Video",
                             "jqq_ZdD5Zwg",
-                            1,
+                            25,
                             null,
                             null,
                             "Mensaje",
