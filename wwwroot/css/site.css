@@ -98,7 +98,7 @@ button:hover {color: #13139bc4;
   background-image: url('/Imagenes/Perdiste.png');
 }
 .Oceano{
-  background-image:url('/imagenes/oceano.webp');
+  background-image:url('/imagenes/oceano.png');
 }
 .Ingreso{
   background-image: url("/imagenes/Momento clave.PNG");
@@ -126,7 +126,7 @@ button:hover {color: #13139bc4;
   background-image: url('/Imagenes/Portal.png');
 }
 .portalPuertas{
-  background-image: url('/imagenes/portalPuertas.jpg');
+  background-image: url('/imagenes/portalPuertas.png');
 }
 .Tumba{
   background-image: url('/imagenes/Tumba.webp');
